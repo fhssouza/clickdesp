@@ -7,6 +7,7 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { ListarCategoriasComponent } from './componentes/categorias/listar-categorias/listar-categorias.component';
 import { AdicionarCategoriasComponent } from './componentes/categorias/adicionar-categorias/adicionar-categorias.component';
+import { CategoriaComponent } from './componentes/categorias/categoria/categoria.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { AdicionarCategoriasComponent } from './componentes/categorias/adicionar
     NavbarComponent,
     FooterComponent,
     ListarCategoriasComponent,
-    AdicionarCategoriasComponent
+    AdicionarCategoriasComponent,
+    CategoriaComponent
   ],
   imports: [
     BrowserModule,
