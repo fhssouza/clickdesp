@@ -19,4 +19,15 @@ export class CategoriaService {
   adicionar(categoria: Categoria): Observable<Categoria>{
     return this.http.post<Categoria>(this.API, categoria);
   }
+
+  buscarPorId(id: number): Observable<Categoria> {
+    const url = `${this.API}/${id}`
+    return this.http.get<Categoria>(url)
+}
+
+  excluir(id: number): Observable<Categoria> {
+    const url = `${this.API}/${id}`;
+    return this.http.delete<Categoria>(url);
+  }
+
 }

@@ -18,11 +18,16 @@
         <th scope="row"><i class="bi bi-caret-right"></i></th>
         <td>{{ categoria.id }}</td>
         <td>{{ categoria.descricao }}</td>
-        <td><i class="bi bi-trash"></i></td>
-        <td><i class="bi bi-pencil-square"></i></td>
+        <td>
+          <button type="button" class="btn btn-danger" routerLink="/categorias/excluircategorias/{{ categoria.id }}"><i class="bi bi-trash"></i></button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-primary"><i class="bi bi-pencil-square"></i></button>
+        </td>
       </tr>
     </tbody>
     </table>
 </div>
+
 
 

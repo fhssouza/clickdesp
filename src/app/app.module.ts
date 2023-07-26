@@ -10,6 +10,7 @@ import { ListarCategoriasComponent } from './componentes/categorias/listar-categ
 import { FooterComponent } from './componentes/footer/footer.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
+import { ExcluirCategoriaComponent } from './componentes/categorias/excluir-categoria/excluir-categoria.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     ListarCategoriasComponent,
     AdicionarCategoriasComponent,
-    CategoriaComponent
+    CategoriaComponent,
+    ExcluirCategoriaComponent
   ],
   imports: [
     BrowserModule,
