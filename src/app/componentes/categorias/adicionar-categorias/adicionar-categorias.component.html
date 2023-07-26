@@ -5,7 +5,7 @@
     <label for="descricao" class="form-label">Descrição</label>
     <input type="text" class="form-control" id="descricao" name="descricao" placeholder="Descrição" [(ngModel)]="categoria.descricao">
   </div>
-  <div class="d-grid gap-2 d-md-block">
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
     <button (click)="adicionarCategoria()" class="btn btn-primary" type="button">Salvar</button>
     <button (click)="cancelar()" class="btn btn-danger" type="button" routerLink="/listarcategorias">Cancelar</button>
   </div>

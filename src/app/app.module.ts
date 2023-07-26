@@ -11,6 +11,7 @@ import { FooterComponent } from './componentes/footer/footer.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { ExcluirCategoriaComponent } from './componentes/categorias/excluir-categoria/excluir-categoria.component';
+import { EditarCategoriaComponent } from './componentes/categorias/editar-categoria/editar-categoria.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ExcluirCategoriaComponent } from './componentes/categorias/excluir-cate
     ListarCategoriasComponent,
     AdicionarCategoriasComponent,
     CategoriaComponent,
-    ExcluirCategoriaComponent
+    ExcluirCategoriaComponent,
+    EditarCategoriaComponent
   ],
   imports: [
     BrowserModule,

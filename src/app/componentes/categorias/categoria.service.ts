@@ -23,7 +23,12 @@ export class CategoriaService {
   buscarPorId(id: number): Observable<Categoria> {
     const url = `${this.API}/${id}`
     return this.http.get<Categoria>(url)
-}
+  }
+
+  editar(categoria: Categoria): Observable<Categoria> {
+    const url = `${this.API}/${categoria.id}`;
+    return this.http.put<Categoria>(url, categoria);
+  }
 
   excluir(id: number): Observable<Categoria> {
     const url = `${this.API}/${id}`;

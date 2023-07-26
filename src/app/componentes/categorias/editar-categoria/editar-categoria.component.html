@@ -1,0 +1,12 @@
+<div class="container">
+  <h3><i class="bi bi-card-checklist"></i> Editar Categorias</h3>
+  <form>
+    <div class="mb-3">
+      <label for="descricao" class="form-label">Descrição</label>
+      <input type="text" class="form-control" id="descricao" name="descricao" placeholder="Descrição" [(ngModel)]="categoria.descricao">
+    </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button (click)="editarCategoria()" class="btn btn-primary" type="button">Salvar</button>
+      <button (click)="cancelar()" class="btn btn-danger" type="button" routerLink="/listarcategorias">Cancelar</button>
+    </div>
+  </form>
