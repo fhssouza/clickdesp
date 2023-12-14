@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Categoria } from '../Categoria';
-import { CategoriaService } from '../categoria.service';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { Categoria } from './../../../models/Categoria';
+import { CategoriaService } from './../../../services/categoria.service';
 
 @Component({
   selector: 'app-editar-categoria',

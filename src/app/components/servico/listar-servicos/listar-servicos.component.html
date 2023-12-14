@@ -1,0 +1,35 @@
+<div class="container">
+  <h3><i class="bi bi-card-checklist"></i> Lista de Serviços</h3>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-primary me-md-2" type="button" routerLink="/adicionarservicos">Nova Categoria</button>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Código</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Preço</th>
+        <th scope="col">Excluir</th>
+        <th scope="col">Editar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let servico of listaServicos">
+        <th scope="row"><i class="bi bi-caret-right"></i></th>
+        <td>{{ servico.id }}</td>
+        <td>{{ servico.descricao }}</td>
+        <td>{{ servico.categoria }}</td>
+        <td>{{ servico.preco | currency : 'BRL'}}</td>
+        <td>
+          <button type="button" class="btn btn-danger" routerLink="/categorias/excluircategorias/{{ servico.id }}"><i class="bi bi-trash"></i></button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-primary" routerLink="/categorias/editarcategorias/{{ servico.id }}" ><i class="bi bi-pencil-square"></i></button>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+</div>
+

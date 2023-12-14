@@ -1,14 +1,15 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Categoria } from './Categoria';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
+import { Categoria } from './../models/Categoria';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriaService {
 
-  private readonly API = 'http://localhost:8080/categorias'
+  private readonly API = 'http://localhost:8080/clickdesp/categorias'
 
   constructor(private http: HttpClient) { }
 

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Categoria } from '../Categoria';
-import { CategoriaService } from '../categoria.service';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { Categoria } from './../../../models/Categoria';
+import { CategoriaService } from './../../../services/categoria.service';
 
 @Component({
   selector: 'app-excluir-categoria',
@@ -29,7 +30,7 @@ export class ExcluirCategoriaComponent implements OnInit {
 
   excluirCategoria(){
     if (this.categoria.id){
-      this.service.excluir(this.categoria.id).subscribe((pensamento) => {
+      this.service.excluir(this.categoria.id).subscribe((categoria) => {
         this.router.navigate(['/listarcategorias']);
       })
     }
