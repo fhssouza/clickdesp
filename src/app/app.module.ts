@@ -14,6 +14,8 @@ import { ListarCategoriasComponent } from './components/categorias/listar-catego
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ListarServicosComponent } from './components/servico/listar-servicos/listar-servicos.component';
+import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { ListarServicosComponent } from './components/servico/listar-servicos/li
     ExcluirCategoriaComponent,
     EditarCategoriaComponent,
     ListarServicosComponent,
+    LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
