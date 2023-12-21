@@ -41,5 +41,4 @@ export class ExcluirCategoriaComponent implements OnInit {
   }
 
 
-
 }

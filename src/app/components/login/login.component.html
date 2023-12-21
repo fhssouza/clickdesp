@@ -1,22 +1,31 @@
 <div class="d-flex align-items-center py-4 bg-body-tertiary h-100">
     <div class="w-100 m-auto form-container">
-      <form action="">
-        <!-- <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" class="mb-4" height="57" width="72"> -->
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
         <h1 class="h3 mb-3 fw-bolder">ClickDesp</h1>
         <h3 class="h5 mb-2 fw-light">Por favor, inicie a sessão</h3>
-        <div class="form-floating">
-          <input type="email" name="" class="form-control" id="floatingInput" placeholder="name@example.com">
+
+        <div class="form-floating my-3">
+          <input type="email" class="form-control" placeholder="E-mail" formControlName="email"
+          [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
           <label for="floatingInput">E-mail</label>
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">{{'E-mail é requerido'}}</div>
+            <div *ngIf="f.email.errors.email">{{'Infome E-mail válido'}}</div>
+          </div>
         </div>
-        <div class="form-floating">
-          <input type="password" name="" class="form-control" id="floatingPassword" placeholder="password">
+
+        <div class="form-floating my-3" >
+          <input type="password" class="form-control" placeholder="Senha" formControlName="senha"
+          [ngClass]="{ 'is-invalid': submitted && f.senha.errors }">
           <label for="floatingInput">Senha</label>
+          <div *ngIf="submitted && f.senha.errors" class="invalid-feedback">
+            <div *ngIf="f.senha.errors.required">{{'Senha é requerido'}}</div>
+          </div>
         </div>
-        <div class="form-check" text-start my-3>
-          <input type="checkbox" class="form-check-input" id="flexCheckDefault">
-          <label class="form-check-label" for="flexCheckDefault">Relembre</label>
-        </div>
+
         <button class="btn btn-dark  w-100 py-2">Inicie Sessão</button>
+        <div *ngIf="error" class="alert alert-danger mt-3 mb-0">Falha na autenticação,  email ou senha incorretos.</div>
+                        <hr class="hr-light mb-3 mt-4">
         <p class="text-body-secondary mt-5 mb-5 ">© 2023 SouzaTech, Inc</p>
       </form>
 </div>
