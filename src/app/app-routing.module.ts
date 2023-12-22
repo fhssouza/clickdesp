@@ -9,10 +9,12 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { ListarServicosComponent } from './components/servico/listar-servicos/listar-servicos.component';
 import { authGuard } from './security/auth.guard';
+import { AdicionarUsuarioComponent } from './components/usuario/adicionar-usuario/adicionar-usuario.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
+  { path: 'adicionarusuario', component: AdicionarUsuarioComponent },
   { path: 'home', component: HomeComponent, canActivate:[authGuard]},
   { path: 'listarcategorias', component: ListarCategoriasComponent, canActivate:[authGuard]},
   { path: 'adicionarcategorias', component: AdicionarCategoriasComponent, canActivate:[authGuard] },

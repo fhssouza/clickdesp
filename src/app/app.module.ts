@@ -17,6 +17,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ListarServicosComponent } from './components/servico/listar-servicos/listar-servicos.component';
 import { JwtInterceptor } from './security/jwt.interceptor';
+import { AdicionarUsuarioComponent } from './components/usuario/adicionar-usuario/adicionar-usuario.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { JwtInterceptor } from './security/jwt.interceptor';
     EditarCategoriaComponent,
     ListarServicosComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    AdicionarUsuarioComponent
 
   ],
   imports: [

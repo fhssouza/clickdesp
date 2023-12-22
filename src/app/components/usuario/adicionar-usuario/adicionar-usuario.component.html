@@ -1,0 +1,56 @@
+<div class="d-flex align-items-center py-4 bg-body-tertiary h-100">
+  <div class="w-100 m-auto form-container">
+    <form [formGroup]="usuarioForm" (ngSubmit)="create()">
+      <h1 class="h3 mb-3 fw-bolder">ClickDesp</h1>
+      <h3 class="h5 mb-2 fw-light">Cadastro</h3>
+
+      <div class="form-floating my-3">
+        <input type="text" class="form-control" placeholder="Nome" formControlName="nome"
+        [ngClass]="{ 'is-invalid': submitted && f.nome.errors }"/>
+        <label for="floatingInput">Nome</label>
+        <div *ngIf="submitted && f.nome.errors" class="invalid-feedback">
+          <div *ngIf="f.nome.errors.required">{{'Nome é requerido'}}</div>
+        </div>
+      </div>
+
+      <div class="form-floating my-3">
+        <input type="text" class="form-control" placeholder="Sobrenome" formControlName="sobrenome"
+        [ngClass]="{ 'is-invalid': submitted && f.sobrenome.errors }"/>
+        <label for="floatingInput">Sobrenome</label>
+        <div *ngIf="submitted && f.sobrenome.errors" class="invalid-feedback">
+          <div *ngIf="f.sobrenome.errors.required">{{'Sobrenome é requerido'}}</div>
+        </div>
+      </div>
+
+
+
+      <div class="form-floating my-3">
+        <input type="email" class="form-control" placeholder="E-mail" formControlName="email"
+        [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
+        <label for="floatingInput">E-mail</label>
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">{{'E-mail é requerido'}}</div>
+          <div *ngIf="f.email.errors.email">{{'Infome E-mail válido'}}</div>
+        </div>
+      </div>
+
+      <div class="form-floating my-3" >
+        <input type="password" class="form-control" placeholder="Senha" formControlName="senha"
+        [ngClass]="{ 'is-invalid': submitted && f.senha.errors }">
+        <label for="floatingInput">Senha</label>
+        <div *ngIf="submitted && f.senha.errors" class="invalid-feedback">
+          <div *ngIf="f.senha.errors.required">{{'Senha é requerido'}}</div>
+        </div>
+      </div>
+
+      <button class="btn btn-dark  w-100 py-2">Cadastrar</button>
+      <div *ngIf="error" class="alert alert-danger mt-3 mb-0">Usuario com E-Mail já cadastrado!</div>
+      <hr class="hr-light mb-3 mt-4">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <div>Já tem conta?</div><button class="btn btn-outline-dark btn-sm" type="button" routerLink="/login">Login</button>
+      </div>
+      <p class="text-body-secondary mt-5 mb-5 ">© 2023 SouzaTech, Inc</p>
+    </form>
+</div>
+
+
