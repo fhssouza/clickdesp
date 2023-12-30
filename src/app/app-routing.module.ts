@@ -1,3 +1,4 @@
+import { AdicionarServicoComponent } from './components/servico/adicionar-servico/adicionar-servico.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'adicionarcategorias', component: AdicionarCategoriasComponent, canActivate:[authGuard] },
   { path: 'categorias/excluircategorias/:id', component: ExcluirCategoriaComponent, canActivate:[authGuard] },
   { path: 'categorias/editarcategorias/:id', component: EditarCategoriaComponent, canActivate:[authGuard] },
-  { path: 'listarservicos', component: ListarServicosComponent, canActivate:[authGuard] }
+  { path: 'listarservicos', component: ListarServicosComponent, canActivate:[authGuard] },
+  { path: 'adicionarservicos', component: AdicionarServicoComponent, canActivate:[authGuard] }
 
 ];
 

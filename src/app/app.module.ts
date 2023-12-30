@@ -15,9 +15,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { AdicionarServicoComponent } from './components/servico/adicionar-servico/adicionar-servico.component';
 import { ListarServicosComponent } from './components/servico/listar-servicos/listar-servicos.component';
-import { JwtInterceptor } from './security/jwt.interceptor';
 import { AdicionarUsuarioComponent } from './components/usuario/adicionar-usuario/adicionar-usuario.component';
+import { JwtInterceptor } from './security/jwt.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { AdicionarUsuarioComponent } from './components/usuario/adicionar-usuari
     ListarServicosComponent,
     LoginComponent,
     HomeComponent,
-    AdicionarUsuarioComponent
+    AdicionarUsuarioComponent,
+    AdicionarServicoComponent
 
   ],
   imports: [

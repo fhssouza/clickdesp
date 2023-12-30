@@ -1,6 +1,6 @@
 export interface Servico{
-  id?:string
+  id?: number
   descricao:string
   preco:number
-  categoria:string
+  categoria:number
 }

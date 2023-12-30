@@ -16,4 +16,23 @@ export class ServicoService {
     return this.http.get<Servico[]>(this.API);
   }
 
+  adicionar(servico: Servico): Observable<Servico>{
+    return this.http.post<Servico>(this.API, servico);
+  }
+
+  buscarPorId(id: number): Observable<Servico> {
+    const url = `${this.API}/${id}`
+    return this.http.get<Servico>(url)
+  }
+
+  editar(servico: Servico): Observable<Servico> {
+    const url = `${this.API}/${servico.id}`;
+    return this.http.put<Servico>(url, servico);
+  }
+
+  excluir(id: number): Observable<Servico> {
+    const url = `${this.API}/${id}`;
+    return this.http.delete<Servico>(url);
+  }
+
 }
