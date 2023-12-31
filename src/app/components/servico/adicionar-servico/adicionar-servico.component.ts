@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Categoria } from 'src/app/models/Categoria';
 import { Servico } from 'src/app/models/Servico';
@@ -12,19 +13,32 @@ import { ServicoService } from 'src/app/services/servico.service';
 })
 export class AdicionarServicoComponent {
 
+  submitted = false;
+  error = '';
+
   categorias: Categoria[] = [];
 
   servico: Servico = {
     descricao:'',
-    preco:0,
-    categoria:0
+    preco:'',
+    categoria:''
   }
+
+  formulario = new FormGroup({
+    descricao: new FormControl('', Validators.required),
+    preco: new FormControl('', Validators.required),
+    categoria: new FormControl('', [Validators.required]),
+  });
 
   constructor(
     private service: ServicoService,
     private router: Router,
     private categoriaService: CategoriaService
   ){}
+
+  get f(){
+    return this.formulario.controls;
+  }
 
   ngOnInit(): void {
     this.getCategorias();
@@ -35,10 +49,21 @@ export class AdicionarServicoComponent {
       .subscribe(categorias => this.categorias = categorias);
   }
 
-  salvar(){
-    this.service.adicionar(this.servico).subscribe(() => {
+  create(){
+    this.submitted = true;
+
+    if (this.formulario.invalid){
+      return;
+    }
+
+    this.service.create(this.formulario.value as Servico)
+    .subscribe(response => {
     this.router.navigate(['/listarservicos'])
-    })
+    },
+    error => {
+      this.error = error;
+      this.submitted = true;
+    });
   }
 
   cancelar(){

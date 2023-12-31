@@ -16,7 +16,7 @@ export class ServicoService {
     return this.http.get<Servico[]>(this.API);
   }
 
-  adicionar(servico: Servico): Observable<Servico>{
+  create(servico: Servico): Observable<Servico>{
     return this.http.post<Servico>(this.API, servico);
   }
 

@@ -1,21 +1,33 @@
 <div class="container">
   <h3><i class="bi bi-card-checklist"></i> Adicionar Servicos</h3>
-  <form>
-    <div class="mb-3">
-      <label for="descricao" class="form-label">Descrição</label>
-      <input type="text" class="form-control" id="descricao" name="descricao" placeholder="Descrição" [(ngModel)]="servico.descricao">
+  <form [formGroup]="formulario" (ngSubmit)="create()">
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="descricao" name="descricao" placeholder="Descrição" formControlName="descricao"
+      [ngClass]="{ 'is-invalid': submitted && f.descricao.errors }"/>
+      <label for="floatingInput">Descrição</label>
+      <div *ngIf="submitted && f.descricao.errors" class="invalid-feedback">
+        <div *ngIf="f.descricao.errors.required">{{'Descrição é requerido'}}</div>
+      </div>
     </div>
-    <div class="mb-3">
-      <label for="descricao" class="form-label">Preço</label>
-      <input type="number" class="form-control" id="preco" name="preco" placeholder="Preço" [(ngModel)]="servico.preco">
+    <div class="form-floating mb-3">
+      <input type="number" class="form-control" id="preco" name="preco" placeholder="Preço" formControlName="preco"
+      [ngClass]="{ 'is-invalid': submitted && f.preco.errors }"/>
+      <label for="floatingInput">Preço</label>
+      <div *ngIf="submitted && f.preco.errors" class="invalid-feedback">
+        <div *ngIf="f.preco.errors.required">{{'Preço é requerido'}}</div>
+      </div>
     </div>
-    <div class="mb-3">
-      <select class="form-select" aria-label="Default select example" name="categoria" [(ngModel)]="servico.categoria">
-        <option *ngFor="let categoria of categorias" [value]="categoria.id">{{ categoria.descricao }}</option>
+       <div class="form-floating mb-3">
+      <select class="form-select" aria-label="Default select example" name="categoria" placeholder="Categoria" formControlName="categoria" [ngClass]="{ 'is-invalid': submitted && f.categoria.errors }">
+        <option value="" disabled selected>Selecione a Categoria...</option>
+        <option *ngFor="let categoria of categorias" [value]="categoria.id" >{{ categoria.descricao }}</option>
       </select>
+      <div *ngIf="submitted && f.categoria.errors" class="invalid-feedback">
+        <div *ngIf="f.categoria.errors.required">{{'Categoria é requerido'}}</div>
+      </div>
     </div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <button (click)="salvar()" class="btn btn-primary" type="submit">Salvar</button>
+      <button class="btn btn-primary" type="submit">Salvar</button>
       <button (click)="cancelar()" class="btn btn-danger" type="button" routerLink="/listarservicos">Cancelar</button>
     </div>
   </form>
