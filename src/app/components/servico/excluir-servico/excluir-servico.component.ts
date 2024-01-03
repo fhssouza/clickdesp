@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Servico } from 'src/app/models/Servico';
 import { ServicoService } from 'src/app/services/servico.service';
 
@@ -19,7 +20,8 @@ export class ExcluirServicoComponent {
   constructor(
     private service: ServicoService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toast: ToastrService,
   ){}
 
   ngOnInit(): void {
@@ -29,12 +31,19 @@ export class ExcluirServicoComponent {
     })
   }
 
-  excluir(){
-    if (this.servico.id){
-      this.service.delete(this.servico.id).subscribe((servico) => {
-        this.router.navigate(['listarservicos']);
-      })
-    }
+  delete(): void {
+    this.service.delete(this.servico.id).subscribe(() => {
+      this.toast.success('Servico deletado com sucesso', 'Delete');
+      this.router.navigate(['listarservicos'])
+    }, ex => {
+      if(ex.error.errors) {
+        ex.error.errors.forEach((element: { message: string | undefined; }) => {
+          this.toast.error(element.message);
+        });
+      } else {
+        this.toast.error(ex.error.message);
+      }
+    })
   }
 
   cancelar(){
