@@ -12,7 +12,7 @@ export class ServicoService {
 
   constructor(private http: HttpClient) { }
 
-  listar(): Observable<Servico[]>{
+  findAll(): Observable<Servico[]>{
     return this.http.get<Servico[]>(this.API);
   }
 
@@ -20,17 +20,17 @@ export class ServicoService {
     return this.http.post<Servico>(this.API, servico);
   }
 
-  buscarPorId(id: number): Observable<Servico> {
+  findById(id: number): Observable<Servico> {
     const url = `${this.API}/${id}`
     return this.http.get<Servico>(url)
   }
 
-  editar(servico: Servico): Observable<Servico> {
+  update(servico: Servico): Observable<Servico> {
     const url = `${this.API}/${servico.id}`;
     return this.http.put<Servico>(url, servico);
   }
 
-  excluir(id: number): Observable<Servico> {
+  delete(id: number): Observable<Servico> {
     const url = `${this.API}/${id}`;
     return this.http.delete<Servico>(url);
   }

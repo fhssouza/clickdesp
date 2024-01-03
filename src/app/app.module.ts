@@ -19,6 +19,8 @@ import { AdicionarServicoComponent } from './components/servico/adicionar-servic
 import { ListarServicosComponent } from './components/servico/listar-servicos/listar-servicos.component';
 import { AdicionarUsuarioComponent } from './components/usuario/adicionar-usuario/adicionar-usuario.component';
 import { JwtInterceptor } from './security/jwt.interceptor';
+import { EditarServicoComponent } from './components/servico/editar-servico/editar-servico.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import { JwtInterceptor } from './security/jwt.interceptor';
     LoginComponent,
     HomeComponent,
     AdicionarUsuarioComponent,
-    AdicionarServicoComponent
+    AdicionarServicoComponent,
+    EditarServicoComponent
 
   ],
   imports: [
@@ -44,7 +47,12 @@ import { JwtInterceptor } from './security/jwt.interceptor';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    ToastrModule.forRoot({
+      timeOut: 4000,
+      closeButton: true,
+      progressBar: true
+    }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

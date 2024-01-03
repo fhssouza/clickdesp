@@ -14,11 +14,11 @@ export class ListarServicosComponent implements OnInit {
   constructor(private service: ServicoService){}
 
   ngOnInit(): void {
-    this.listarServicos();
+    this.findAll();
   }
-
-  listarServicos(): void {
-    this.service.listar()
+  
+  findAll(): void {
+    this.service.findAll()
     .subscribe(listarServicos => {
       console.table(listarServicos);
       this.listaServicos = listarServicos;
