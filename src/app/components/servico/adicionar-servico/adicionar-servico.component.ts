@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Categoria } from 'src/app/models/Categoria';
 import { Servico } from 'src/app/models/Servico';
 import { CategoriaService } from 'src/app/services/categoria.service';
@@ -12,9 +13,6 @@ import { ServicoService } from 'src/app/services/servico.service';
   styleUrls: ['./adicionar-servico.component.css']
 })
 export class AdicionarServicoComponent {
-
-  submitted = false;
-  error = '';
 
   categorias: Categoria[] = [];
 
@@ -31,42 +29,42 @@ export class AdicionarServicoComponent {
   });
 
   constructor(
-    private service: ServicoService,
+    private servicoService: ServicoService,
     private router: Router,
-    private categoriaService: CategoriaService
+    private categoriaService: CategoriaService,
+    private toast: ToastrService
   ){}
 
-  get f(){
-    return this.formulario.controls;
-  }
-
   ngOnInit(): void {
-    this.getCategorias();
+    this.findAllCategorias();
   }
 
-  getCategorias(): void {
+  findAllCategorias(): void {
     this.categoriaService.listar()
       .subscribe(categorias => this.categorias = categorias);
   }
 
-  create(){
-    this.submitted = true;
+  create(): void {
+    this.servicoService.create(this.formulario.value as Servico).subscribe(() => {
+      this.toast.success('Serviço cadastrado com sucesso', 'Servico');
+      this.router.navigate(['servicos'])
+    }, ex => {
+      if(ex.error.errors) {
+        ex.error.errors.forEach((element: { message: string | undefined; }) => {
+          this.toast.error(element.message);
+        });
+      } else {
+        this.toast.error(ex.error.message);
+      }
+    })
+  }
 
-    if (this.formulario.invalid){
-      return;
-    }
-
-    this.service.create(this.formulario.value as Servico)
-    .subscribe(response => {
-    this.router.navigate(['/listarservicos'])
-    },
-    error => {
-      this.error = error;
-      this.submitted = true;
-    });
+  validaCampos(): boolean {
+    return this.formulario.valid;
   }
 
   cancelar(){
-    this.router.navigate(['/listarservicos']);
+    this.router.navigate(['servicos']);
   }
+
 }

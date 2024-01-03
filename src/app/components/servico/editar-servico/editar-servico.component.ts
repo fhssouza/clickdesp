@@ -52,10 +52,17 @@ export class EditarServicoComponent {
   }
 
   update(): void {
-    this.servicoService.update(this.servico).subscribe(resposta => {
-      this.router.navigate(['listarservicos']);
+    this.servicoService.update(this.servico).subscribe(() => {
+      this.toastService.success('Serviço atualizado com sucesso', 'Update');
+      this.router.navigate(['servicos'])
     }, ex => {
-      this.toastService.error(ex.error.error);
+      if(ex.error.errors) {
+        ex.error.errors.forEach((element: { message: string | undefined; }) => {
+          this.toastService.error(element.message);
+        });
+      } else {
+        this.toastService.error(ex.error.message);
+      }
     })
   }
 
@@ -70,7 +77,7 @@ export class EditarServicoComponent {
   }
 
   cancel(){
-    this.router.navigate(['listarservicos'])
+    this.router.navigate(['servicos'])
   }
 
 }

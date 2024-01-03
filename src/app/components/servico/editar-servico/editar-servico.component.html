@@ -28,13 +28,13 @@
       required>
         <!-- <option value="{{ categoria.id }}">{{ servico.categoria }}</option> -->
         <option value="" disabled>Selecione a categoria</option>
-        <option *ngFor="let cat of categorias" value="cat.descricao" [ngValue]="cat.id" >{{ cat.descricao }}</option>
+        <option *ngFor="let cat of categorias" [ngValue]="cat.id" >{{ cat.descricao }}</option>
       </select>
       <label for="floatingInput">Categoria</label>
     </div>
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
       <button class="btn btn-primary" type="submit" [disabled]="!validaCampos()">Salvar</button>
-      <button (click)="cancel()"  class="btn btn-danger" type="button" routerLink="/listarservicos">Cancelar</button>
+      <button (click)="cancel()"  class="btn btn-danger" type="button" routerLink="/servicos">Cancelar</button>
     </div>
   </form>

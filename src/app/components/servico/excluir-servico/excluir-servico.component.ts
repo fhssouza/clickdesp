@@ -34,7 +34,7 @@ export class ExcluirServicoComponent {
   delete(): void {
     this.service.delete(this.servico.id).subscribe(() => {
       this.toast.success('Servico deletado com sucesso', 'Delete');
-      this.router.navigate(['listarservicos'])
+      this.router.navigate(['servicos'])
     }, ex => {
       if(ex.error.errors) {
         ex.error.errors.forEach((element: { message: string | undefined; }) => {
@@ -47,7 +47,7 @@ export class ExcluirServicoComponent {
   }
 
   cancelar(){
-    this.router.navigate(['listarservicos']);
+    this.router.navigate(['servicos']);
   }
 
 }

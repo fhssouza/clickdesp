@@ -23,10 +23,11 @@ const routes: Routes = [
   { path: 'adicionarcategorias', component: AdicionarCategoriasComponent, canActivate:[authGuard] },
   { path: 'categorias/excluircategorias/:id', component: ExcluirCategoriaComponent, canActivate:[authGuard] },
   { path: 'categorias/editarcategorias/:id', component: EditarCategoriaComponent, canActivate:[authGuard] },
-  { path: 'listarservicos', component: ListarServicosComponent, canActivate:[authGuard] },
-  { path: 'adicionarservicos', component: AdicionarServicoComponent, canActivate:[authGuard] },
-  { path: 'servicos/editarservicos/:id', component: EditarServicoComponent, canActivate:[authGuard] },
-  { path: 'servico/excluir/:id', component: ExcluirServicoComponent, canActivate:[authGuard] },
+
+  { path: 'servicos', component: ListarServicosComponent, canActivate:[authGuard] },
+  { path: 'servicos/create', component: AdicionarServicoComponent, canActivate:[authGuard] },
+  { path: 'servicos/update/:id', component: EditarServicoComponent, canActivate:[authGuard] },
+  { path: 'servicos/delete/:id', component: ExcluirServicoComponent, canActivate:[authGuard] },
 
 ];
 

@@ -2,7 +2,7 @@
   <app-navbar></app-navbar>
   <h3><i class="bi bi-card-checklist"></i> Lista de Serviços</h3>
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <button class="btn btn-primary me-md-2" type="button" routerLink="/adicionarservicos">Novo Serviço</button>
+    <button class="btn btn-primary me-md-2" type="button" routerLink="/servicos/create">Novo Serviço</button>
   </div>
   <table class="table">
     <thead>
@@ -24,10 +24,10 @@
         <td>{{ servico.categoria }}</td>
         <td>{{ servico.preco | currency : 'BRL'}}</td>
         <td>
-          <button type="button" class="btn btn-danger" routerLink="/servico/excluir/{{ servico.id }}"><i class="bi bi-trash"></i></button>
+          <button type="button" class="btn btn-danger" routerLink="/servicos/delete/{{ servico.id }}"><i class="bi bi-trash"></i></button>
         </td>
         <td>
-          <button type="button" class="btn btn-primary" routerLink="/servicos/editarservicos/{{ servico.id }}" ><i class="bi bi-pencil-square"></i></button>
+          <button type="button" class="btn btn-primary" routerLink="/servicos/update/{{ servico.id }}" ><i class="bi bi-pencil-square"></i></button>
         </td>
       </tr>
     </tbody>

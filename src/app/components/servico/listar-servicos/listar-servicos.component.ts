@@ -16,11 +16,10 @@ export class ListarServicosComponent implements OnInit {
   ngOnInit(): void {
     this.findAll();
   }
-  
+
   findAll(): void {
     this.service.findAll()
     .subscribe(listarServicos => {
-      console.table(listarServicos);
       this.listaServicos = listarServicos;
     });
   }
