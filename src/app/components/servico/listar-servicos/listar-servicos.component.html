@@ -24,7 +24,7 @@
         <td>{{ servico.categoria }}</td>
         <td>{{ servico.preco | currency : 'BRL'}}</td>
         <td>
-          <button type="button" class="btn btn-danger" routerLink="/categorias/excluircategorias/{{ servico.id }}"><i class="bi bi-trash"></i></button>
+          <button type="button" class="btn btn-danger" routerLink="/servico/excluir/{{ servico.id }}"><i class="bi bi-trash"></i></button>
         </td>
         <td>
           <button type="button" class="btn btn-primary" routerLink="/servicos/editarservicos/{{ servico.id }}" ><i class="bi bi-pencil-square"></i></button>

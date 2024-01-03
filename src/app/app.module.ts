@@ -21,6 +21,7 @@ import { AdicionarUsuarioComponent } from './components/usuario/adicionar-usuari
 import { JwtInterceptor } from './security/jwt.interceptor';
 import { EditarServicoComponent } from './components/servico/editar-servico/editar-servico.component';
 import { ToastrModule } from 'ngx-toastr';
+import { ExcluirServicoComponent } from './components/servico/excluir-servico/excluir-servico.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { ToastrModule } from 'ngx-toastr';
     HomeComponent,
     AdicionarUsuarioComponent,
     AdicionarServicoComponent,
-    EditarServicoComponent
+    EditarServicoComponent,
+    ExcluirServicoComponent
 
   ],
   imports: [

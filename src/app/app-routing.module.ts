@@ -1,3 +1,4 @@
+import { ExcluirServicoComponent } from './components/servico/excluir-servico/excluir-servico.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'listarservicos', component: ListarServicosComponent, canActivate:[authGuard] },
   { path: 'adicionarservicos', component: AdicionarServicoComponent, canActivate:[authGuard] },
   { path: 'servicos/editarservicos/:id', component: EditarServicoComponent, canActivate:[authGuard] },
+  { path: 'servico/excluir/:id', component: ExcluirServicoComponent, canActivate:[authGuard] },
 
 ];
 
