@@ -40,7 +40,7 @@ export class AdicionarServicoComponent {
   }
 
   findAllCategorias(): void {
-    this.categoriaService.listar()
+    this.categoriaService.findAll()
       .subscribe(categorias => this.categorias = categorias);
   }
 

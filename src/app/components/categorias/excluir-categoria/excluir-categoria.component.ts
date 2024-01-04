@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Categoria } from './../../../models/Categoria';
 import { CategoriaService } from './../../../services/categoria.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-excluir-categoria',
@@ -16,28 +17,42 @@ export class ExcluirCategoriaComponent implements OnInit {
   }
 
   constructor(
-    private service: CategoriaService,
+    private categoriaService: CategoriaService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toastService: ToastrService,
   ){}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.service.buscarPorId(parseInt(id!)).subscribe((categoria) => {
-      this.categoria = categoria;
+    this.categoria.id = this.route.snapshot.paramMap.get('id');
+    this.findById();
+  }
+
+  findById(): void {
+    this.categoriaService.findById(this.categoria.id).subscribe(resposta => {
+      this.categoria = resposta;
+    }, ex => {
+      this.toastService.error(ex.error.error);
     })
   }
 
-  excluirCategoria(){
-    if (this.categoria.id){
-      this.service.excluir(this.categoria.id).subscribe((categoria) => {
-        this.router.navigate(['/listarcategorias']);
-      })
-    }
+  delete(): void {
+    this.categoriaService.delete(this.categoria.id).subscribe(() => {
+      this.toastService.success('Categoria deletada com sucesso', 'Deletar');
+      this.router.navigate(['categorias'])
+    }, ex => {
+      if(ex.error.errors) {
+        ex.error.errors.forEach((element: { message: string | undefined; }) => {
+          this.toastService.error(element.message);
+        });
+      } else {
+        this.toastService.error(ex.error.message);
+      }
+    })
   }
 
   cancelar(){
-    this.router.navigate(['/listarcategorias']);
+    this.router.navigate(['/categorias']);
   }
 
 

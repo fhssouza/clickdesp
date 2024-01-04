@@ -19,10 +19,11 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'adicionarusuario', component: AdicionarUsuarioComponent },
   { path: 'home', component: HomeComponent, canActivate:[authGuard]},
-  { path: 'listarcategorias', component: ListarCategoriasComponent, canActivate:[authGuard]},
-  { path: 'adicionarcategorias', component: AdicionarCategoriasComponent, canActivate:[authGuard] },
-  { path: 'categorias/excluircategorias/:id', component: ExcluirCategoriaComponent, canActivate:[authGuard] },
-  { path: 'categorias/editarcategorias/:id', component: EditarCategoriaComponent, canActivate:[authGuard] },
+
+  { path: 'categorias', component: ListarCategoriasComponent, canActivate:[authGuard]},
+  { path: 'categorias/create', component: AdicionarCategoriasComponent, canActivate:[authGuard] },
+  { path: 'categorias/update/:id', component: EditarCategoriaComponent, canActivate:[authGuard] },
+  { path: 'categorias/delete/:id', component: ExcluirCategoriaComponent, canActivate:[authGuard] },
 
   { path: 'servicos', component: ListarServicosComponent, canActivate:[authGuard] },
   { path: 'servicos/create', component: AdicionarServicoComponent, canActivate:[authGuard] },

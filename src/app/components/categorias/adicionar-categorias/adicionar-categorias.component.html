@@ -1,13 +1,20 @@
 <div class="container">
 <h3><i class="bi bi-card-checklist"></i> Adicionar Categorias</h3>
-<form>
-  <div class="mb-3">
-    <label for="descricao" class="form-label">Descrição</label>
-    <input type="text" class="form-control" id="descricao" name="descricao" placeholder="Descrição" [(ngModel)]="categoria.descricao">
+<form [formGroup]="formulario" (ngSubmit)="create()">
+
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control"
+    id="descricao"
+    name="descricao"
+    placeholder="Descrição"
+    formControlName="descricao"
+    required>
+    <label for="floatingInput">Descrição</label>
   </div>
+
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <button (click)="adicionarCategoria()" class="btn btn-primary" type="button">Salvar</button>
-    <button (click)="cancelar()" class="btn btn-danger" type="button" routerLink="/listarcategorias">Cancelar</button>
+    <button class="btn btn-primary" type="submit" [disabled]="!validaCampos()">Salvar</button>
+    <button (click)="cancelar()" class="btn btn-danger" type="button" routerLink="/categorias">Cancelar</button>
   </div>
 </form>
 

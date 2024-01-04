@@ -11,13 +11,17 @@ import { CategoriaService } from './../../../services/categoria.service';
 })
 export class ListarCategoriasComponent implements OnInit {
 
-  listaCategorias: Categoria[]=[];
+  categorias: Categoria[]=[];
 
   constructor(private service: CategoriaService){}
 
   ngOnInit(): void {
-    this.service.listar().subscribe((listaCategorias) => {
-      this.listaCategorias = listaCategorias;
+    this.findAll();
+  }
+
+  findAll(): void {
+    this.service.findAll().subscribe((categorias) => {
+      this.categorias = categorias;
     });
   }
 

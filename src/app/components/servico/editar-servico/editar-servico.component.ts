@@ -67,7 +67,7 @@ export class EditarServicoComponent {
   }
 
   findAllCategorias(): void {
-    this.categoriaService.listar().subscribe(resposta => {
+    this.categoriaService.findAll().subscribe(resposta => {
       this.categorias = resposta;
     })
   }

@@ -2,7 +2,7 @@
   <app-navbar></app-navbar>
   <h3><i class="bi bi-card-checklist"></i> Lista de Categorias</h3>
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <button class="btn btn-primary me-md-2" type="button" routerLink="/adicionarcategorias">Nova Categoria</button>
+    <button class="btn btn-primary me-md-2" type="button" routerLink="/categorias/create">Nova Categoria</button>
   </div>
   <table class="table">
     <thead>
@@ -15,15 +15,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let categoria of listaCategorias">
+      <tr *ngFor="let cat of categorias">
         <th scope="row"><i class="bi bi-caret-right"></i></th>
-        <td>{{ categoria.id }}</td>
-        <td>{{ categoria.descricao }}</td>
+        <td>{{ cat.id }}</td>
+        <td>{{ cat.descricao }}</td>
         <td>
-          <button type="button" class="btn btn-danger" routerLink="/categorias/excluircategorias/{{ categoria.id }}"><i class="bi bi-trash"></i></button>
+          <button type="button" class="btn btn-danger" routerLink="/categorias/delete/{{ cat.id }}"><i class="bi bi-trash"></i></button>
         </td>
         <td>
-          <button type="button" class="btn btn-primary" routerLink="/categorias/editarcategorias/{{ categoria.id }}" ><i class="bi bi-pencil-square"></i></button>
+          <button type="button" class="btn btn-primary" routerLink="/categorias/update/{{ cat.id }}" ><i class="bi bi-pencil-square"></i></button>
         </td>
       </tr>
     </tbody>
