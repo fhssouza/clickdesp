@@ -1,0 +1,46 @@
+<div class="container">
+  <app-navbar></app-navbar>
+  <h3><i class="bi bi-card-checklist"></i> Lista de Proprietários</h3>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-primary me-md-2" type="button" routerLink="/proprietarios/create">Novo Proprietário</button>
+  </div>
+  <div class="table-responsive">
+  <table class="table table-striped align-middle">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Código</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">CPF/CPNJ</th>
+        <th scope="col">Identidade</th>
+        <th scope="col">Habilitação</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Responsável</th>
+        <th scope="col">Telefones</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider" >
+      <tr *ngFor="let prop of proprietarios">
+        <th scope="row"><i class="bi bi-caret-right"></i></th>
+        <td>{{ prop.id }}</td>
+        <td>{{ prop.nome }}</td>
+        <td>{{ prop.tipoPessoa }}</td>
+        <td>{{ prop.cpfOuCnpj | cpfCnpj }}</td>
+        <td>{{ prop.identidade }}</td>
+        <td>{{ prop.habilitacao }}</td>
+        <td>{{ prop.email }}</td>
+        <td>{{ prop.responsavel }}</td>
+        <td>{{ prop.telefones }}</td>
+        <td>
+          <button type="button" class="btn btn-danger" routerLink="/proprietarios/delete/{{ prop.id }}"><i class="bi bi-trash"></i></button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-primary" routerLink="/proprietarios/update/{{ prop.id }}" ><i class="bi bi-pencil-square"></i></button>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+    <app-footer></app-footer>
+  </div>
+</div>

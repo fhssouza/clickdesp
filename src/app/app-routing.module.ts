@@ -1,3 +1,4 @@
+import { ProprietarioListComponent } from './components/proprietario/proprietario-list/proprietario-list.component';
 import { ExcluirServicoComponent } from './components/servico/excluir-servico/excluir-servico.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -19,6 +20,11 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'adicionarusuario', component: AdicionarUsuarioComponent },
   { path: 'home', component: HomeComponent, canActivate:[authGuard]},
+
+  { path: 'proprietarios', component: ProprietarioListComponent, canActivate:[authGuard]},
+  // { path: 'proprietarios/create', component: AdicionarCategoriasComponent, canActivate:[authGuard] },
+  // { path: 'proprietarios/update/:id', component: EditarCategoriaComponent, canActivate:[authGuard] },
+  // { path: 'proprietarios/delete/:id', component: ExcluirCategoriaComponent, canActivate:[authGuard] },
 
   { path: 'categorias', component: ListarCategoriasComponent, canActivate:[authGuard]},
   { path: 'categorias/create', component: AdicionarCategoriasComponent, canActivate:[authGuard] },

@@ -22,6 +22,9 @@ import { ExcluirServicoComponent } from './components/servico/excluir-servico/ex
 import { ListarServicosComponent } from './components/servico/listar-servicos/listar-servicos.component';
 import { AdicionarUsuarioComponent } from './components/usuario/adicionar-usuario/adicionar-usuario.component';
 import { JwtInterceptor } from './security/jwt.interceptor';
+import { ProprietarioListComponent } from './components/proprietario/proprietario-list/proprietario-list.component';
+import { CpfCnpjPipe } from './shared/pipe/cpf-cnpj.pipe';
+import { PhonePipe } from './shared/pipe/phone.pipe';
 
 
 @NgModule({
@@ -39,7 +42,10 @@ import { JwtInterceptor } from './security/jwt.interceptor';
     AdicionarUsuarioComponent,
     AdicionarServicoComponent,
     EditarServicoComponent,
-    ExcluirServicoComponent
+    ExcluirServicoComponent,
+    ProprietarioListComponent,
+    CpfCnpjPipe,
+    PhonePipe
 
   ],
   imports: [
