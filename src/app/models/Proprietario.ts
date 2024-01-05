@@ -6,6 +6,6 @@ export interface Proprietario{
   identidade: string
   nome: string
   responsavel: string
-  telefones: string
+  telefone: string
   tipoPessoa: string
 }

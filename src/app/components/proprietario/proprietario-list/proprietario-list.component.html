@@ -17,7 +17,7 @@
         <th scope="col">Habilitação</th>
         <th scope="col">E-mail</th>
         <th scope="col">Responsável</th>
-        <th scope="col">Telefones</th>
+        <th scope="col">Telefone</th>
       </tr>
     </thead>
     <tbody class="table-group-divider" >
@@ -31,7 +31,7 @@
         <td>{{ prop.habilitacao }}</td>
         <td>{{ prop.email }}</td>
         <td>{{ prop.responsavel }}</td>
-        <td>{{ prop.telefones }}</td>
+        <td>{{ prop.telefone | phone }}</td>
         <td>
           <button type="button" class="btn btn-danger" routerLink="/proprietarios/delete/{{ prop.id }}"><i class="bi bi-trash"></i></button>
         </td>

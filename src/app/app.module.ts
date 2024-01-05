@@ -16,15 +16,18 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ProprietarioCreateComponent } from './components/proprietario/proprietario-create/proprietario-create.component';
+import { ProprietarioListComponent } from './components/proprietario/proprietario-list/proprietario-list.component';
 import { AdicionarServicoComponent } from './components/servico/adicionar-servico/adicionar-servico.component';
 import { EditarServicoComponent } from './components/servico/editar-servico/editar-servico.component';
 import { ExcluirServicoComponent } from './components/servico/excluir-servico/excluir-servico.component';
 import { ListarServicosComponent } from './components/servico/listar-servicos/listar-servicos.component';
 import { AdicionarUsuarioComponent } from './components/usuario/adicionar-usuario/adicionar-usuario.component';
 import { JwtInterceptor } from './security/jwt.interceptor';
-import { ProprietarioListComponent } from './components/proprietario/proprietario-list/proprietario-list.component';
+import { TelefoneMaskDirective } from './shared/directives/telefone-mask.directive';
 import { CpfCnpjPipe } from './shared/pipe/cpf-cnpj.pipe';
 import { PhonePipe } from './shared/pipe/phone.pipe';
+import { CpfcnpjMaskDirective } from './shared/directives/cpfcnpj-mask.directive';
 
 
 @NgModule({
@@ -45,7 +48,10 @@ import { PhonePipe } from './shared/pipe/phone.pipe';
     ExcluirServicoComponent,
     ProprietarioListComponent,
     CpfCnpjPipe,
-    PhonePipe
+    PhonePipe,
+    ProprietarioCreateComponent,
+    TelefoneMaskDirective,
+    CpfcnpjMaskDirective
 
   ],
   imports: [
