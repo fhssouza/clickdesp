@@ -1,3 +1,4 @@
+import { ProprietarioUpdateComponent } from './components/proprietario/proprietario-update/proprietario-update.component';
 import { ProprietarioCreateComponent } from './components/proprietario/proprietario-create/proprietario-create.component';
 import { ProprietarioListComponent } from './components/proprietario/proprietario-list/proprietario-list.component';
 import { ExcluirServicoComponent } from './components/servico/excluir-servico/excluir-servico.component';
@@ -24,7 +25,7 @@ const routes: Routes = [
 
   { path: 'proprietarios', component: ProprietarioListComponent, canActivate:[authGuard]},
   { path: 'proprietarios/create', component: ProprietarioCreateComponent, canActivate:[authGuard] },
-  // { path: 'proprietarios/update/:id', component: EditarCategoriaComponent, canActivate:[authGuard] },
+  { path: 'proprietarios/update/:id', component: ProprietarioUpdateComponent, canActivate:[authGuard] },
   // { path: 'proprietarios/delete/:id', component: ExcluirCategoriaComponent, canActivate:[authGuard] },
 
   { path: 'categorias', component: ListarCategoriasComponent, canActivate:[authGuard]},

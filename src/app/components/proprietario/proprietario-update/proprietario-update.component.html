@@ -1,0 +1,107 @@
+<div class="container">
+  <h3><i class="bi bi-card-checklist"></i> Atualizar Proprietário</h3>
+  <form [formGroup]="formulario" (ngSubmit)="update()">
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control"
+      id="nome"
+      name="nome"
+      placeholder="nome"
+      formControlName="nome"
+      [(ngModel)]="proprietario.nome"
+      required>
+      <label for="floatingInput">Nome</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <select class="form-select" aria-label="Default select example"
+      id="tipoPessoa"
+      name="tipoPessoa"
+      placeholder="Tipo"
+      formControlName="tipoPessoa"
+      [(ngModel)]="proprietario.tipoPessoa"
+      required>
+        <option value="" disabled selected>Selecione o tipo de pessoa...</option>
+        <option>FISICA</option>
+        <option>JURIDICA</option>
+      </select>
+      <label for="floatingInput">Tipo</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control"
+      id="cpfOuCnpj"
+      name="cpfOuCnpj"
+      placeholder="CPF/CNPJ"
+      formControlName="cpfOuCnpj"
+      minlength="11"
+      maxlength="14"
+      appCpfCnpjMask
+      [(ngModel)]="proprietario.cpfOuCnpj"
+      required>
+      <label for="floatingInput">CPF/CNPJ</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control"
+      id="identidade"
+      name="identidade"
+      placeholder="Identidade"
+      formControlName="identidade"
+      [(ngModel)]="proprietario.identidade"
+      required>
+      <label for="floatingInput">Identidade</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control"
+      id="habilitacao"
+      name="habilitacao"
+      placeholder="Habilitacao"
+      formControlName="habilitacao"
+      [(ngModel)]="proprietario.habilitacao"
+      required>
+      <label for="floatingInput">Habilitacao</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control"
+      id="email"
+      name="email"
+      placeholder="E-Email"
+      formControlName="email"
+      [(ngModel)]="proprietario.email"
+      required>
+      <label for="floatingInput">E-mail</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control"
+      id="responsavel"
+      name="responsavel"
+      placeholder="responsavel"
+      formControlName="responsavel"
+      [(ngModel)]="proprietario.responsavel"
+      required>
+      <label for="floatingInput">Responsável</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control"
+      id="telefone"
+      name="telefone"
+      placeholder="Telefone"
+      formControlName="telefone"
+      minlength="15"
+      maxlength="15"
+      appTelefoneMask
+      [(ngModel)]="proprietario.telefone"
+      required>
+      <label for="floatingInput">Telefone</label>
+    </div>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary" type="submit" [disabled]="!validaCampos()">Salvar</button>
+      <button (click)="cancelar()" class="btn btn-danger" type="button" routerLink="/servicos">Cancelar</button>
+    </div>
+  </form>
