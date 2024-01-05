@@ -29,6 +29,7 @@ import { CpfCnpjPipe } from './shared/pipe/cpf-cnpj.pipe';
 import { PhonePipe } from './shared/pipe/phone.pipe';
 import { CpfcnpjMaskDirective } from './shared/directives/cpfcnpj-mask.directive';
 import { ProprietarioUpdateComponent } from './components/proprietario/proprietario-update/proprietario-update.component';
+import { ProprietarioDeleteComponent } from './components/proprietario/proprietario-delete/proprietario-delete.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { ProprietarioUpdateComponent } from './components/proprietario/proprieta
     ProprietarioCreateComponent,
     TelefoneMaskDirective,
     CpfcnpjMaskDirective,
-    ProprietarioUpdateComponent
+    ProprietarioUpdateComponent,
+    ProprietarioDeleteComponent
 
   ],
   imports: [
