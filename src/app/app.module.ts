@@ -30,6 +30,7 @@ import { PhonePipe } from './shared/pipe/phone.pipe';
 import { CpfcnpjMaskDirective } from './shared/directives/cpfcnpj-mask.directive';
 import { ProprietarioUpdateComponent } from './components/proprietario/proprietario-update/proprietario-update.component';
 import { ProprietarioDeleteComponent } from './components/proprietario/proprietario-delete/proprietario-delete.component';
+import { VeiculoListComponent } from './components/veiculo/veiculo-list/veiculo-list.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { ProprietarioDeleteComponent } from './components/proprietario/proprieta
     TelefoneMaskDirective,
     CpfcnpjMaskDirective,
     ProprietarioUpdateComponent,
-    ProprietarioDeleteComponent
+    ProprietarioDeleteComponent,
+    VeiculoListComponent
 
   ],
   imports: [

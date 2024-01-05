@@ -1,0 +1,57 @@
+<div class="container">
+  <app-navbar></app-navbar>
+  <h3><i class="bi bi-card-checklist"></i> Lista de Veiculos</h3>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-primary me-md-2" type="button" routerLink="/veiculos/create">Novo Veiculo</button>
+  </div>
+  <div class="table-responsive">
+  <table class="table table-striped align-middle table-hover table-sm">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Código</th>
+        <th scope="col">Placa</th>
+        <th scope="col">Marca</th>
+        <th scope="col">Modelo</th>
+        <th scope="col">Cor</th>
+        <th scope="col">Combustível</th>
+        <th scope="col">Procedencia</th>
+        <th scope="col">Ano</th>
+        <th scope="col">CRV</th>
+        <th scope="col">Data</th>
+        <th scope="col">Chassi</th>
+        <th scope="col">Alienação</th>
+        <th scope="col">Arrendamento</th>
+        <th scope="col">Proprietário</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider" >
+      <tr *ngFor="let veic of veiculos">
+        <th scope="row"><i class="bi bi-caret-right"></i></th>
+        <td>{{ veic.id }}</td>
+        <td>{{ veic.placa }}</td>
+        <td>{{ veic.marca }}</td>
+        <td>{{ veic.modelo | cpfCnpj }}</td>
+        <td>{{ veic.cor }}</td>
+        <td>{{ veic.combustivel }}</td>
+        <td>{{ veic.procedencia }}</td>
+        <td>{{ veic.ano }}</td>
+        <td>{{ veic.crv }}</td>
+        <td>{{ veic.dataCrv }}</td>
+        <td>{{ veic.chassi }}</td>
+        <td>{{ veic.alienacaoFinduciaria }}</td>
+        <td>{{ veic.arrendamento }}</td>
+        <td>{{ veic.proprietario }}</td>
+        <td>
+          <button type="button" class="btn btn-danger" routerLink="/veiculos/delete/{{ veic.id }}"><i class="bi bi-trash"></i></button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-primary" routerLink="/veiculos/update/{{ veic.id }}" ><i class="bi bi-pencil-square"></i></button>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+    <app-footer></app-footer>
+  </div>
+</div>
+
