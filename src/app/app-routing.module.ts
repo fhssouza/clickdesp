@@ -1,3 +1,4 @@
+import { VeiculoUpdateComponent } from './components/veiculo/veiculo-update/veiculo-update.component';
 import { VeiculoCreateComponent } from './components/veiculo/veiculo-create/veiculo-create.component';
 import { VeiculoListComponent } from './components/veiculo/veiculo-list/veiculo-list.component';
 import { ProprietarioDeleteComponent } from './components/proprietario/proprietario-delete/proprietario-delete.component';
@@ -33,6 +34,7 @@ const routes: Routes = [
 
   { path: 'veiculos', component: VeiculoListComponent, canActivate:[authGuard]},
   { path: 'veiculos/create', component: VeiculoCreateComponent, canActivate:[authGuard] },
+  { path: 'veiculos/update/:id', component: VeiculoUpdateComponent, canActivate:[authGuard] },
 
   { path: 'categorias', component: ListarCategoriasComponent, canActivate:[authGuard]},
   { path: 'categorias/create', component: AdicionarCategoriasComponent, canActivate:[authGuard] },
