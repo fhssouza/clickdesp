@@ -1,0 +1,171 @@
+<div class="container">
+  <h3><i class="bi bi-card-checklist"></i> Adicionar Veículo</h3>
+  <form [formGroup]="formulario" (ngSubmit)="create()">
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control"
+      id="placa"
+      name="placa"
+      placeholder="placa"
+      formControlName="placa"
+      required>
+      <label for="floatingInput">Placa</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control"
+      id="marca"
+      name="marca"
+      placeholder="marca"
+      formControlName="marca"
+      required>
+      <label for="floatingInput">Marca</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control"
+      id="modelo"
+      name="modelo"
+      placeholder="modelo"
+      formControlName="modelo"
+      required>
+      <label for="floatingInput">Modelo</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control"
+      id="cor"
+      name="cor"
+      placeholder="cor"
+      formControlName="cor"
+      required>
+      <label for="floatingInput">Cor</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <select class="form-select" aria-label="Default select example"
+      id="combustivel"
+      name="combustivel"
+      placeholder="combustivel"
+      formControlName="combustivel"
+      required>
+        <option value="" disabled selected>Selecione o tipo de combustível...</option>
+        <option>ALCOOL</option>
+        <option>GASOLINA</option>
+        <option>DIESEL</option>
+        <option>FLEX</option>
+      </select>
+      <label for="floatingInput">Combustível</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <select class="form-select" aria-label="Default select example"
+      id="procedencia"
+      name="procedencia"
+      placeholder="procedencia"
+      formControlName="procedencia"
+      required>
+        <option value="" disabled selected>Selecione a procedência...</option>
+        <option>NACIONAL</option>
+        <option>IMPORTADO</option>
+      </select>
+      <label for="floatingInput">Procedência</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="number" class="form-control"
+      id="ano"
+      name="ano"
+      placeholder="ano"
+      formControlName="ano"
+      required>
+      <label for="floatingInput">Ano</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="number" class="form-control"
+      id="crv"
+      name="crv"
+      placeholder="crv"
+      formControlName="crv"
+      required>
+      <label for="floatingInput">CRV</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="date" class="form-control"
+      id="dataCrv"
+      name="dataCrv"
+      placeholder="dataCrv"
+      formControlName="dataCrv"
+      required>
+      <label for="floatingInput">Data CRV</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control"
+      id="chassi"
+      name="chassi"
+      placeholder="chassi"
+      formControlName="chassi"
+      required>
+      <label for="floatingInput">Chassi</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <select class="form-select" aria-label="Default select example"
+      id="alienacaoFinduciaria"
+      name="alienacaoFinduciaria"
+      placeholder="alienacaoFinduciaria"
+      formControlName="alienacaoFinduciaria"
+      required>
+        <option value="" disabled selected>Selecione...</option>
+        <option>SIM</option>
+        <option>NÃO</option>
+      </select>
+      <label for="floatingInput">Alienacao Finduciaria</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <select class="form-select" aria-label="Default select example"
+      id="arrendamento"
+      name="arrendamento"
+      placeholder="arrendamento"
+      formControlName="arrendamento"
+      required>
+        <option value="" disabled selected>Selecione...</option>
+        <option>SIM</option>
+        <option>NÃO</option>
+      </select>
+      <label for="floatingInput">Arrendamento</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control"
+      id="renavam"
+      name="renavam"
+      placeholder="renavam"
+      formControlName="renavam"
+      required>
+      <label for="floatingInput">Renavam</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <select class="form-select" aria-label="Default select example"
+      id="proprietario"
+      name="proprietario"
+      placeholder="proprietario"
+      formControlName="proprietario"
+      required>
+        <option value="" disabled selected>Selecione o proprietario...</option>
+        <option *ngFor="let prop of proprietarios" [ngValue]="prop.id" >{{ prop.nome }}</option>
+      </select>
+      <label for="floatingInput">Proprietario</label>
+    </div>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary" type="submit" [disabled]="!validaCampos()">Salvar</button>
+      <button (click)="cancelar()" class="btn btn-danger" type="button" routerLink="/veiculos">Cancelar</button>
+    </div>
+  </form>
+

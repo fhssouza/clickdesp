@@ -3,15 +3,15 @@ export interface Veiculo{
   placa: string;
   marca: string;
   modelo: string;
-  chassi: string;
-  renavam: string;
   cor: string;
   combustivel: string;
-  ano: number;
-  arrendamento: string;
   procedencia: string;
-  alienacaoFinduciaria: string;
+  ano: number;
   crv: number;
   dataCrv: string;
+  chassi: string;
+  alienacaoFinduciaria: string;
+  arrendamento: string;
+  renavam: string;
   proprietario: any;
 }
