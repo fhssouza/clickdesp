@@ -34,6 +34,7 @@ import { CpfcnpjMaskDirective } from './shared/directives/cpfcnpj-mask.directive
 import { TelefoneMaskDirective } from './shared/directives/telefone-mask.directive';
 import { CpfCnpjPipe } from './shared/pipe/cpf-cnpj.pipe';
 import { PhonePipe } from './shared/pipe/phone.pipe';
+import { VeiculoDeleteComponent } from './components/veiculo/veiculo-delete/veiculo-delete.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { PhonePipe } from './shared/pipe/phone.pipe';
     ProprietarioDeleteComponent,
     VeiculoListComponent,
     VeiculoCreateComponent,
-    VeiculoUpdateComponent
+    VeiculoUpdateComponent,
+    VeiculoDeleteComponent
 
   ],
   imports: [
