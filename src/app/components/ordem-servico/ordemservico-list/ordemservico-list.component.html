@@ -1,0 +1,45 @@
+<div class="container">
+  <app-navbar></app-navbar>
+  <h3><i class="bi bi-card-checklist"></i> Lista de Ordens de Serviços</h3>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-primary me-md-2" type="button" routerLink="/ordens-servicos/create">Nova Ordem Serviço</button>
+  </div>
+  <div class="table-responsive">
+  <table class="table table-striped align-middle table-hover table-sm">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Código</th>
+        <th scope="col">Status</th>
+        <th scope="col">Veiculo</th>
+        <th scope="col">Proprietario</th>
+        <th scope="col">Tipo de Serviço</th>
+        <th scope="col">Valor Total</th>
+        <th scope="col">Observação</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider" >
+      <tr *ngFor="let os of ordensservicos">
+        <th scope="row"><i class="bi bi-caret-right"></i></th>
+        <td>{{ os.id }}</td>
+        <td>{{ os.status }}</td>
+        <td>{{ os.veiculoPlaca }}</td>
+        <td>{{ os.proprietarioNome }}</td>
+        <td>Primeiro Emplacamento</td>
+        <td>{{ os.valorTotal | currency : 'BRL' }}</td>
+        <td>{{ os.observacao }}</td>
+        <td>
+          <button type="button" class="btn btn-primary" routerLink="/ordens-servicos/itens/{{ os.id }}"><i class="bi bi-card-checklist"></i></button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger" routerLink="/ordens-servicos/cancel/{{ os.id }}"><i class="bi bi-trash"></i></button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-warning" routerLink="/ordens-servicos/cancel/{{ os.id }}"><i class="bi bi-slash-circle"></i></button>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+    <app-footer></app-footer>
+  </div>
+</div>

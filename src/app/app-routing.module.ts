@@ -1,3 +1,4 @@
+import { OrdemservicoListComponent } from './components/ordem-servico/ordemservico-list/ordemservico-list.component';
 import { VeiculoDeleteComponent } from './components/veiculo/veiculo-delete/veiculo-delete.component';
 import { VeiculoUpdateComponent } from './components/veiculo/veiculo-update/veiculo-update.component';
 import { VeiculoCreateComponent } from './components/veiculo/veiculo-create/veiculo-create.component';
@@ -47,6 +48,8 @@ const routes: Routes = [
   { path: 'servicos/create', component: AdicionarServicoComponent, canActivate:[authGuard] },
   { path: 'servicos/update/:id', component: EditarServicoComponent, canActivate:[authGuard] },
   { path: 'servicos/delete/:id', component: ExcluirServicoComponent, canActivate:[authGuard] },
+
+  { path: 'ordens-servicos', component: OrdemservicoListComponent, canActivate:[authGuard] },
 
 ];
 

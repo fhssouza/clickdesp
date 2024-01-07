@@ -35,6 +35,7 @@ import { TelefoneMaskDirective } from './shared/directives/telefone-mask.directi
 import { CpfCnpjPipe } from './shared/pipe/cpf-cnpj.pipe';
 import { PhonePipe } from './shared/pipe/phone.pipe';
 import { VeiculoDeleteComponent } from './components/veiculo/veiculo-delete/veiculo-delete.component';
+import { OrdemservicoListComponent } from './components/ordem-servico/ordemservico-list/ordemservico-list.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { VeiculoDeleteComponent } from './components/veiculo/veiculo-delete/veic
     VeiculoListComponent,
     VeiculoCreateComponent,
     VeiculoUpdateComponent,
-    VeiculoDeleteComponent
+    VeiculoDeleteComponent,
+    OrdemservicoListComponent
 
   ],
   imports: [
