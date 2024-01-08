@@ -33,10 +33,20 @@
         <td>{{ prop.responsavel }}</td>
         <td>{{ prop.telefone | phone }}</td>
         <td>
-          <button type="button" class="btn btn-danger" routerLink="/proprietarios/delete/{{ prop.id }}"><i class="bi bi-trash"></i></button>
+          <button type="button"
+          class="btn btn-danger"
+          tooltip="Deletar"
+          routerLink="/proprietarios/delete/{{ prop.id }}">
+          <i class="bi bi-trash"></i>
+        </button>
         </td>
         <td>
-          <button type="button" class="btn btn-primary" routerLink="/proprietarios/update/{{ prop.id }}" ><i class="bi bi-pencil-square"></i></button>
+          <button type="button"
+          class="btn btn-primary"
+          tooltip="Atualizar"
+          routerLink="/proprietarios/update/{{ prop.id }}" >
+          <i class="bi bi-pencil-square"></i>
+        </button>
         </td>
       </tr>
     </tbody>

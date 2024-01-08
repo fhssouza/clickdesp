@@ -17,6 +17,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { OrdemservicoListComponent } from './components/ordem-servico/ordemservico-list/ordemservico-list.component';
 import { ProprietarioCreateComponent } from './components/proprietario/proprietario-create/proprietario-create.component';
 import { ProprietarioDeleteComponent } from './components/proprietario/proprietario-delete/proprietario-delete.component';
 import { ProprietarioListComponent } from './components/proprietario/proprietario-list/proprietario-list.component';
@@ -27,6 +28,7 @@ import { ExcluirServicoComponent } from './components/servico/excluir-servico/ex
 import { ListarServicosComponent } from './components/servico/listar-servicos/listar-servicos.component';
 import { AdicionarUsuarioComponent } from './components/usuario/adicionar-usuario/adicionar-usuario.component';
 import { VeiculoCreateComponent } from './components/veiculo/veiculo-create/veiculo-create.component';
+import { VeiculoDeleteComponent } from './components/veiculo/veiculo-delete/veiculo-delete.component';
 import { VeiculoListComponent } from './components/veiculo/veiculo-list/veiculo-list.component';
 import { VeiculoUpdateComponent } from './components/veiculo/veiculo-update/veiculo-update.component';
 import { JwtInterceptor } from './security/jwt.interceptor';
@@ -34,8 +36,7 @@ import { CpfcnpjMaskDirective } from './shared/directives/cpfcnpj-mask.directive
 import { TelefoneMaskDirective } from './shared/directives/telefone-mask.directive';
 import { CpfCnpjPipe } from './shared/pipe/cpf-cnpj.pipe';
 import { PhonePipe } from './shared/pipe/phone.pipe';
-import { VeiculoDeleteComponent } from './components/veiculo/veiculo-delete/veiculo-delete.component';
-import { OrdemservicoListComponent } from './components/ordem-servico/ordemservico-list/ordemservico-list.component';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 
 @NgModule({
@@ -67,7 +68,6 @@ import { OrdemservicoListComponent } from './components/ordem-servico/ordemservi
     VeiculoUpdateComponent,
     VeiculoDeleteComponent,
     OrdemservicoListComponent
-
   ],
   imports: [
     BrowserModule,
@@ -79,6 +79,7 @@ import { OrdemservicoListComponent } from './components/ordem-servico/ordemservi
     CommonModule,
     NgxMaskDirective,
     NgxMaskPipe,
+    TooltipModule.forRoot(),
     ToastrModule.forRoot({
       timeOut: 4000,
       closeButton: true,

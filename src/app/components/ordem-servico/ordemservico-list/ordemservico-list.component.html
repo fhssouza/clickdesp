@@ -29,13 +29,28 @@
         <td>{{ os.valorTotal | currency : 'BRL' }}</td>
         <td>{{ os.observacao }}</td>
         <td>
-          <button type="button" class="btn btn-primary" routerLink="/ordens-servicos/itens/{{ os.id }}"><i class="bi bi-card-checklist"></i></button>
+          <button type="button"
+          class="btn btn-primary"
+          tooltip="Serviços"
+          routerLink="/ordens-servicos/itens/{{ os.id }}">
+          <i class="bi bi-card-checklist"></i>
+        </button>
         </td>
         <td>
-          <button type="button" class="btn btn-danger" routerLink="/ordens-servicos/cancel/{{ os.id }}"><i class="bi bi-trash"></i></button>
+          <button type="button"
+          class="btn btn-danger"
+          tooltip="Cancelar"
+          routerLink="/ordens-servicos/cancel/{{ os.id }}">
+          <i class="bi bi-trash"></i>
+        </button>
         </td>
         <td>
-          <button type="button" class="btn btn-warning" routerLink="/ordens-servicos/cancel/{{ os.id }}"><i class="bi bi-slash-circle"></i></button>
+          <button type="button"
+          class="btn btn-warning"
+          tooltip="Finalizar"
+          routerLink="/ordens-servicos/finish/{{ os.id }}">
+          <i class="bi bi-slash-circle"></i>
+        </button>
         </td>
       </tr>
     </tbody>

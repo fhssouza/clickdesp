@@ -11,20 +11,28 @@
         <th scope="col">#</th>
         <th scope="col">Código</th>
         <th scope="col">Descrição</th>
-        <th scope="col">Excluir</th>
-        <th scope="col">Editar</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="table-group-divider">
       <tr *ngFor="let cat of categorias">
         <th scope="row"><i class="bi bi-caret-right"></i></th>
         <td>{{ cat.id }}</td>
         <td>{{ cat.descricao }}</td>
         <td>
-          <button type="button" class="btn btn-danger" routerLink="/categorias/delete/{{ cat.id }}"><i class="bi bi-trash"></i></button>
+          <button type="button"
+          class="btn btn-danger"
+          tooltip="Deletar"
+          routerLink="/categorias/delete/{{ cat.id }}">
+          <i class="bi bi-trash"></i>
+        </button>
         </td>
         <td>
-          <button type="button" class="btn btn-primary" routerLink="/categorias/update/{{ cat.id }}" ><i class="bi bi-pencil-square"></i></button>
+          <button type="button"
+          class="btn btn-primary"
+          tooltip="Atualizar"
+          routerLink="/categorias/update/{{ cat.id }}">
+          <i class="bi bi-pencil-square"></i>
+        </button>
         </td>
       </tr>
     </tbody>

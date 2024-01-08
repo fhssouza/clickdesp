@@ -43,10 +43,20 @@
         <td>{{ veic.arrendamento }}</td>
         <td>{{ veic.proprietario }}</td>
         <td>
-          <button type="button" class="btn btn-danger" routerLink="/veiculos/delete/{{ veic.id }}"><i class="bi bi-trash"></i></button>
+          <button type="button"
+          class="btn btn-danger"
+          tooltip="Deletar"
+          routerLink="/veiculos/delete/{{ veic.id }}">
+          <i class="bi bi-trash"></i>
+        </button>
         </td>
         <td>
-          <button type="button" class="btn btn-primary" routerLink="/veiculos/update/{{ veic.id }}" ><i class="bi bi-pencil-square"></i></button>
+          <button type="button"
+          class="btn btn-primary"
+          tooltip="Atualizar"
+          routerLink="/veiculos/update/{{ veic.id }}" >
+          <i class="bi bi-pencil-square"></i>
+        </button>
         </td>
       </tr>
     </tbody>
