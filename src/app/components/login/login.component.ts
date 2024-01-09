@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Credencial } from 'src/app/models/Credencial';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
@@ -29,6 +30,7 @@ export class LoginComponent {
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router,
+    private toast: ToastrService
   ){}
 
   get f(){
@@ -45,11 +47,18 @@ export class LoginComponent {
     this.authenticationService.login(this.loginForm.value as Credencial)
     .subscribe(response => {
       this.router.navigate(['/home'])
-    },
-    error => {
-      this.error = error;
-      this.submitted = true;
-    });
+    }, () => {
+      this.toast.error('Usuário e/ou senha inválidos');
+    })
   }
+
+  // logar() {
+  //   this.service.authenticate(this.creds).subscribe(resposta => {
+  //     this.service.successfulLogin(resposta.headers.get('Authorization').substring(7));
+  //     this.router.navigate([''])
+  //   }, () => {
+  //     this.toast.error('Usuário e/ou senha inválidos');
+  //   })
+  // }
 
 }
