@@ -1,0 +1,55 @@
+<div class="container-fluid ">
+    <div class="row flex-nowrap ">
+        <div class="bg-dark col-auto col-md-4 col-lg-2  min-vh-100 d-flex flex-column justify-content-between ">
+            <div class="bg-dark p2">
+                <a class="d-flex text-decoration-none mt-1 align-items-center text-white  ">
+                    <span class="fs-4 d-none d-sm-inline ">Menu</span>
+                </a>
+                <ul class="nav nav-pills flex-column mt-4">
+                    <li class="nav-item py-2 py-sm-0 ">
+                        <a href="" class="nav-link text-white">
+                          <i class="bi bi-speedometer2"></i><span class="fs-4 ms-3 d-none d-sm-inline ">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item py-2 py-sm-0 ">
+                        <a routerLink="/home" class="nav-link text-white">
+                          <i class="bi bi-house-check"></i><span class="fs-4 ms-3 d-none d-sm-inline ">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item py-2 py-sm-0 ">
+                        <a routerLink="/proprietarios" class="nav-link text-white">
+                          <i class="bi bi-person-gear"></i><span class="fs-4 ms-3 d-none d-sm-inline ">Proprietários</span>
+                        </a>
+                    </li>
+                    <li class="nav-item py-2 py-sm-0 ">
+                        <a routerLink="/veiculos" class="nav-link text-white">
+                          <i class="bi bi-car-front-fill"></i><span class="fs-4 ms-3 d-none d-sm-inline ">Veículos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item py-2 py-sm-0 ">
+                        <a routerLink="/categorias" class="nav-link text-white">
+                          <i class="bi bi-tags"></i><span class="fs-4 ms-3 d-none d-sm-inline ">Categorias</span>
+                        </a>
+                    </li>
+                    <li class="nav-item py-2 py-sm-0 ">
+                        <a routerLink="/servicos" class="nav-link text-white">
+                          <i class="bi bi-gear"></i><span class="fs-4 ms-3 d-none d-sm-inline ">Serviços</span>
+                        </a>
+                    </li>
+                    <li class="nav-item py-2 py-sm-0 ">
+                      <a routerLink="/ordens-servicos" class="nav-link text-white">
+                        <i class="bi bi-card-checklist"></i><span class="fs-4 ms-3 d-none d-sm-inline ">Ordens de Serviços</span>
+                      </a>
+                  </li>
+                </ul>
+
+            </div>
+            <div class="dropdown open p-3 ">
+              <button type="button" class="btn btn-dark" (click)="deslogar()"><i class="bi bi-box-arrow-right"></i> Sair</button>
+            </div>
+        </div>
+        <div class="">
+            <router-outlet></router-outlet>
+       </div>
+    </div>
+</div>

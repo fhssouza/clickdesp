@@ -1,3 +1,4 @@
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { OrdemservicoListComponent } from './components/ordem-servico/ordemservico-list/ordemservico-list.component';
 import { VeiculoDeleteComponent } from './components/veiculo/veiculo-delete/veiculo-delete.component';
 import { VeiculoUpdateComponent } from './components/veiculo/veiculo-update/veiculo-update.component';
@@ -24,33 +25,38 @@ import { AdicionarUsuarioComponent } from './components/usuario/adicionar-usuari
 import { authGuard } from './security/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full'},
+
+  // { path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
   { path: 'adicionarusuario', component: AdicionarUsuarioComponent },
-  { path: 'home', component: HomeComponent, canActivate:[authGuard]},
 
-  { path: 'proprietarios', component: ProprietarioListComponent, canActivate:[authGuard]},
-  { path: 'proprietarios/create', component: ProprietarioCreateComponent, canActivate:[authGuard] },
-  { path: 'proprietarios/update/:id', component: ProprietarioUpdateComponent, canActivate:[authGuard] },
-  { path: 'proprietarios/delete/:id', component: ProprietarioDeleteComponent, canActivate:[authGuard] },
+  { path: '', component: SidebarComponent, canActivate:[authGuard], children:[
+    { path: 'home', component: HomeComponent },
 
-  { path: 'veiculos', component: VeiculoListComponent, canActivate:[authGuard]},
-  { path: 'veiculos/create', component: VeiculoCreateComponent, canActivate:[authGuard] },
-  { path: 'veiculos/update/:id', component: VeiculoUpdateComponent, canActivate:[authGuard] },
-  { path: 'veiculos/delete/:id', component: VeiculoDeleteComponent, canActivate:[authGuard] },
+    { path: 'proprietarios', component: ProprietarioListComponent, canActivate:[authGuard]},
+    { path: 'proprietarios/create', component: ProprietarioCreateComponent, canActivate:[authGuard] },
+    { path: 'proprietarios/update/:id', component: ProprietarioUpdateComponent, canActivate:[authGuard] },
+    { path: 'proprietarios/delete/:id', component: ProprietarioDeleteComponent, canActivate:[authGuard] },
 
-  { path: 'categorias', component: ListarCategoriasComponent, canActivate:[authGuard]},
-  { path: 'categorias/create', component: AdicionarCategoriasComponent, canActivate:[authGuard] },
-  { path: 'categorias/update/:id', component: EditarCategoriaComponent, canActivate:[authGuard] },
-  { path: 'categorias/delete/:id', component: ExcluirCategoriaComponent, canActivate:[authGuard] },
+    { path: 'veiculos', component: VeiculoListComponent, canActivate:[authGuard]},
+    { path: 'veiculos/create', component: VeiculoCreateComponent, canActivate:[authGuard] },
+    { path: 'veiculos/update/:id', component: VeiculoUpdateComponent, canActivate:[authGuard] },
+    { path: 'veiculos/delete/:id', component: VeiculoDeleteComponent, canActivate:[authGuard] },
 
-  { path: 'servicos', component: ListarServicosComponent, canActivate:[authGuard] },
-  { path: 'servicos/create', component: AdicionarServicoComponent, canActivate:[authGuard] },
-  { path: 'servicos/update/:id', component: EditarServicoComponent, canActivate:[authGuard] },
-  { path: 'servicos/delete/:id', component: ExcluirServicoComponent, canActivate:[authGuard] },
+    { path: 'categorias', component: ListarCategoriasComponent, canActivate:[authGuard]},
+    { path: 'categorias/create', component: AdicionarCategoriasComponent, canActivate:[authGuard] },
+    { path: 'categorias/update/:id', component: EditarCategoriaComponent, canActivate:[authGuard] },
+    { path: 'categorias/delete/:id', component: ExcluirCategoriaComponent, canActivate:[authGuard] },
 
-  { path: 'ordens-servicos', component: OrdemservicoListComponent, canActivate:[authGuard] },
+    { path: 'servicos', component: ListarServicosComponent, canActivate:[authGuard] },
+    { path: 'servicos/create', component: AdicionarServicoComponent, canActivate:[authGuard] },
+    { path: 'servicos/update/:id', component: EditarServicoComponent, canActivate:[authGuard] },
+    { path: 'servicos/delete/:id', component: ExcluirServicoComponent, canActivate:[authGuard] },
 
+    { path: 'ordens-servicos', component: OrdemservicoListComponent, canActivate:[authGuard] },
+
+    ]
+  }
 ];
 
 @NgModule({

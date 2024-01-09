@@ -37,6 +37,7 @@ import { TelefoneMaskDirective } from './shared/directives/telefone-mask.directi
 import { CpfCnpjPipe } from './shared/pipe/cpf-cnpj.pipe';
 import { PhonePipe } from './shared/pipe/phone.pipe';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 @NgModule({
@@ -67,7 +68,8 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
     VeiculoCreateComponent,
     VeiculoUpdateComponent,
     VeiculoDeleteComponent,
-    OrdemservicoListComponent
+    OrdemservicoListComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
