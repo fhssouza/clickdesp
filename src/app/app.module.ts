@@ -1,9 +1,10 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -26,6 +27,7 @@ import { AdicionarServicoComponent } from './components/servico/adicionar-servic
 import { EditarServicoComponent } from './components/servico/editar-servico/editar-servico.component';
 import { ExcluirServicoComponent } from './components/servico/excluir-servico/excluir-servico.component';
 import { ListarServicosComponent } from './components/servico/listar-servicos/listar-servicos.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AdicionarUsuarioComponent } from './components/usuario/adicionar-usuario/adicionar-usuario.component';
 import { VeiculoCreateComponent } from './components/veiculo/veiculo-create/veiculo-create.component';
 import { VeiculoDeleteComponent } from './components/veiculo/veiculo-delete/veiculo-delete.component';
@@ -36,8 +38,7 @@ import { CpfcnpjMaskDirective } from './shared/directives/cpfcnpj-mask.directive
 import { TelefoneMaskDirective } from './shared/directives/telefone-mask.directive';
 import { CpfCnpjPipe } from './shared/pipe/cpf-cnpj.pipe';
 import { PhonePipe } from './shared/pipe/phone.pipe';
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { OrdemservicoCreateComponent } from './components/ordem-servico/ordemservico-create/ordemservico-create.component';
 
 
 @NgModule({
@@ -69,7 +70,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     VeiculoUpdateComponent,
     VeiculoDeleteComponent,
     OrdemservicoListComponent,
-    SidebarComponent
+    SidebarComponent,
+    OrdemservicoCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,6 +83,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     CommonModule,
     NgxMaskDirective,
     NgxMaskPipe,
+    CurrencyPipe,
     TooltipModule.forRoot(),
     ToastrModule.forRoot({
       timeOut: 4000,
@@ -90,7 +93,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    provideNgxMask()
+    provideNgxMask(),
+    CurrencyPipe
   ],
   bootstrap: [AppComponent]
 })

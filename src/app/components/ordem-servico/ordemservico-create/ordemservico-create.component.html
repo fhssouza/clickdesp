@@ -1,0 +1,127 @@
+<div class="container p-2  m-2">
+  <h3><i class="bi bi-card-checklist"></i> Adicionar Ordem de Serviço</h3>
+  <form [formGroup]="formulario" (ngSubmit)="create()">
+
+    <div class="form-floating mb-3">
+      <select class="form-select"
+      aria-label="Default select example"
+      id="veiculo"
+      name="veiculo"
+      placeholder="veiculo"
+       formControlName="veiculo"
+       required>
+        <option value="" disabled selected>Selecione a placa do veículo...</option>
+        <option *ngFor="let veic of veiculos" [ngValue]="veic.id">{{ veic.placa }}</option>
+      </select>
+      <label for="floatingInput">Placa</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text"
+      class="form-control"
+      id="tipoServico"
+      name="tipoServico"
+      placeholder="tipoServico"
+      formControlName="tipoServico"
+      required>
+      <label for="floatingInput">Tipo de Servico</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text"
+      class="form-control"
+      id="observacao"
+      name="observacao"
+      placeholder="observacao"
+      formControlName="observacao"
+      required>
+      <label for="floatingInput">Observacao</label>
+    </div>
+
+    <div class="container p-2  m-2">
+      <h4><i class="bi bi-card-checklist"></i>Serviços</h4>
+
+      <div formArrayName="itens">
+        <div *ngFor="let item of itens.controls; let i=index">
+          <div [formGroupName]="i">
+            <div class="d-grid p-1 d-md-flex justify-content-md-end">
+              <button type="button"
+              class="btn btn-danger"
+              tooltip="Deletar"
+              (click)="removerItem(i)">
+                <i class="bi bi-trash"></i>
+              </button>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text"
+              class="form-control"
+              id="quantidade"
+              name="quantidade"
+              placeholder="quantidade"
+              formControlName="quantidade"
+              required>
+              <label for="floatingInput">Quantidade</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <select class="form-select"
+              aria-label="Default select example"
+              id="servico"
+              name="servico"
+              placeholder="servico"
+              formControlName="servico"
+              (change)="atualizarPreco(i)"
+              required>
+                <option value="" disabled selected>Selecione o servico...</option>
+                <option *ngFor="let servico of servicos" [ngValue]="servico.id">{{ servico.descricao }}</option>
+              </select>
+              <label for="floatingInput">Servico</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text"
+              class="form-control"
+              id="preco"
+              name="preco"
+              placeholder="preco"
+              formControlName="preco"
+              required>
+              <label for="floatingInput">preco</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text"
+              class="form-control"
+              id="desconto"
+              name="desconto"
+              placeholder="desconto"
+              formControlName="desconto"
+              required>
+              <label for="floatingInput">desconto</label>
+              <hr/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-grid p-1 d-md-flex">
+        <button type="button"
+        class="btn btn-primary"
+        tooltip="Adicionar Serviço"
+        (click)="addItens()">
+          <i class="bi bi-pencil-square"> Adicionar Serviços</i>
+        </button>
+      </div>
+
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-primary" type="submit">Salvar</button>
+        <button
+        (click)="cancelar()"
+        class="btn btn-danger"
+        type="button"
+        routerLink="/servicos">Cancelar</button>
+      </div>
+
+    </div>
+  </form>
+</div>

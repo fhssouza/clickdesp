@@ -1,10 +1,13 @@
-import { Veiculo } from "./Veiculo";
+import { Itens } from "./Itens";
 
 export interface OrdemServico{
   id?: any;
-  status: string;
+  status?: string;
+  tipoServico: string;
   observacao: string;
   veiculoPlaca?: string;
+  veiculo?: any;
   proprietarioNome?: string;
-  valorTotal?: number
+  valorTotal?: number;
+  itens?: Itens
 }
