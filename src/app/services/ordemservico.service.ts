@@ -34,4 +34,9 @@ export class OrdemservicoService {
     const url = `${this.API}/${id}`;
     return this.http.delete<OrdemServico>(url);
   }
+
+  cancel(ordemServico: OrdemServico): Observable<OrdemServico> {
+    const url = `${this.API}/${ordemServico.id}/cancelada`;
+    return this.http.put<OrdemServico>(url, ordemServico);
+  }
 }

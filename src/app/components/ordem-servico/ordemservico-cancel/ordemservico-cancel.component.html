@@ -1,0 +1,11 @@
+<div class="container p-2  m-2">
+  <div class="alert alert-danger" role="alert">
+    <p>A ordem de serviço <strong>{{ ordemServico.id }}</strong> será cancelada. <br/> Confirma o cancelamento?</p>
+  </div>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button type="button" class="btn btn-primary" (click)="cancel()">Confirmar</button>
+    <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+  </div>
+
+</div>
+

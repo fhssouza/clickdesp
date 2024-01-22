@@ -1,3 +1,4 @@
+import { OrdemservicoCancelComponent } from './components/ordem-servico/ordemservico-cancel/ordemservico-cancel.component';
 import { OrdemservicoUpdateComponent } from './components/ordem-servico/ordemservico-update/ordemservico-update.component';
 import { OrdemservicoCreateComponent } from './components/ordem-servico/ordemservico-create/ordemservico-create.component';
 import { NgModule } from '@angular/core';
@@ -58,6 +59,7 @@ const routes: Routes = [
     { path: 'ordens-servicos', component: OrdemservicoListComponent, canActivate:[authGuard] },
     { path: 'ordens-servicos/create', component: OrdemservicoCreateComponent, canActivate:[authGuard] },
     { path: 'ordens-servicos/update/:id', component: OrdemservicoUpdateComponent, canActivate:[authGuard] },
+    { path: 'ordens-servicos/cancel/:id', component: OrdemservicoCancelComponent, canActivate:[authGuard] },
 
     ]
   }

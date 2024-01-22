@@ -40,6 +40,7 @@ import { CpfCnpjPipe } from './shared/pipe/cpf-cnpj.pipe';
 import { PhonePipe } from './shared/pipe/phone.pipe';
 import { OrdemservicoCreateComponent } from './components/ordem-servico/ordemservico-create/ordemservico-create.component';
 import { OrdemservicoUpdateComponent } from './components/ordem-servico/ordemservico-update/ordemservico-update.component';
+import { OrdemservicoCancelComponent } from './components/ordem-servico/ordemservico-cancel/ordemservico-cancel.component';
 
 
 @NgModule({
@@ -74,6 +75,7 @@ import { OrdemservicoUpdateComponent } from './components/ordem-servico/ordemser
     SidebarComponent,
     OrdemservicoCreateComponent,
     OrdemservicoUpdateComponent,
+    OrdemservicoCancelComponent,
   ],
   imports: [
     BrowserModule,
