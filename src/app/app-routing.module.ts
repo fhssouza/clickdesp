@@ -1,3 +1,4 @@
+import { OrdemservicoUpdateComponent } from './components/ordem-servico/ordemservico-update/ordemservico-update.component';
 import { OrdemservicoCreateComponent } from './components/ordem-servico/ordemservico-create/ordemservico-create.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -56,6 +57,7 @@ const routes: Routes = [
 
     { path: 'ordens-servicos', component: OrdemservicoListComponent, canActivate:[authGuard] },
     { path: 'ordens-servicos/create', component: OrdemservicoCreateComponent, canActivate:[authGuard] },
+    { path: 'ordens-servicos/update/:id', component: OrdemservicoUpdateComponent, canActivate:[authGuard] },
 
     ]
   }

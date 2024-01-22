@@ -1,8 +1,9 @@
 import { CurrencyPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Itens } from 'src/app/models/Itens';
 import { OrdemServico } from 'src/app/models/OrdemServico';
 import { Servico } from 'src/app/models/Servico';
 import { Veiculo } from 'src/app/models/Veiculo';
@@ -11,11 +12,15 @@ import { ServicoService } from 'src/app/services/servico.service';
 import { VeiculoService } from 'src/app/services/veiculo.service';
 
 @Component({
-  selector: 'app-ordemservico-create',
-  templateUrl: './ordemservico-create.component.html',
-  styleUrls: ['./ordemservico-create.component.css']
+  selector: 'app-ordemservico-update',
+  templateUrl: './ordemservico-update.component.html',
+  styleUrls: ['./ordemservico-update.component.css']
 })
-export class OrdemservicoCreateComponent {
+export class OrdemservicoUpdateComponent {
+
+  orderId: number;
+
+  listitens: Itens[] = [];
 
   formulario: FormGroup;
 
@@ -24,29 +29,30 @@ export class OrdemservicoCreateComponent {
   servicos: Servico[] = [];
 
   ordemServico: OrdemServico = {
-    veiculo: {
-      id: 0,
-      placa: ''
-    },
+    id: '',
+    veiculo: '',
     tipoServico: '',
     observacao: '',
     itens: []
-    }
+  }
 
   constructor(
     private servicoService: ServicoService,
     private veiculoService: VeiculoService,
     private ordemServicoService: OrdemservicoService,
     private router: Router,
+    private route: ActivatedRoute,
     private toast: ToastrService,
     private fb: FormBuilder,
     private currencyPipe: CurrencyPipe
-  ){}
+  ) { }
 
   ngOnInit(): void {
+    this.orderId = this.route.snapshot.params.id;
     this.findAllVeiculos();
     this.findAllServicos();
     this.inicializarFormulario();
+    this.carregarFormularioFindById()
   }
 
   findAllVeiculos(): void {
@@ -61,6 +67,7 @@ export class OrdemservicoCreateComponent {
 
   inicializarFormulario() {
     this.formulario = this.fb.group({
+      id: [''],
       veiculo: ['', Validators.required],
       tipoServico: ['', Validators.required],
       observacao: [''],
@@ -68,11 +75,36 @@ export class OrdemservicoCreateComponent {
     });
   }
 
-  get itens() {
+  carregarFormularioFindById(): void {
+
+    this.ordemServicoService.findById(this.orderId).subscribe(ordemServico => {
+
+      this.formulario.patchValue({
+        id: ordemServico.id,
+        veiculo: ordemServico.veiculo,
+        tipoServico: ordemServico.tipoServico,
+        observacao: ordemServico.observacao,
+      });
+
+      const itensFormArray = this.formulario.get('itens') as FormArray;
+      itensFormArray.clear();
+
+      ordemServico.itens.forEach(item => {
+        itensFormArray.push(this.fb.group({
+          quantidade: item.quantidade,
+          servico: item.servico.id,
+          preco: item.preco,
+          desconto: item.desconto,
+        }));
+      });
+    });
+  }
+
+  get itensFormArray(): FormArray {
     return this.formulario.get('itens') as FormArray;
   }
 
-  addItens() {
+  addItens(): void {
     const itensArray = this.formulario.get('itens') as FormArray;
     itensArray.push(this.criarItemFormGroup());
   }
@@ -87,28 +119,28 @@ export class OrdemservicoCreateComponent {
   }
 
   removerItem(index: number) {
-      const itensArray = this.formulario.get('itens') as FormArray;
-      itensArray.removeAt(index);
+    const itensArray = this.formulario.get('itens') as FormArray;
+    itensArray.removeAt(index);
   }
 
   atualizarPreco(index: number) {
-    const servicoId = this.itens.at(index).get('servico')?.value;
+    const servicoId = this.itensFormArray.at(index).get('servico')?.value;
     const servicoSelecionado = this.servicos.find((servico) => servico.id === servicoId);
 
     if (servicoSelecionado) {
       const precoFormatado = this.currencyPipe.transform(servicoSelecionado.preco, 'BRL', 'symbol', '1.2-2');
-      this.itens.at(index).get('preco')?.setValue(precoFormatado);
+      this.itensFormArray.at(index).get('preco')?.setValue(precoFormatado);
     } else {
-      this.itens.at(index).get('preco')?.setValue('');
+      this.itensFormArray.at(index).get('preco')?.setValue('');
     }
   }
 
-  create(): void {
-    this.ordemServicoService.create(this.formulario.value as OrdemServico).subscribe(() => {
-      this.toast.success('Ordem de Serviço cadastrada com sucesso', 'Cadastrar');
-      this.router.navigate(['ordens-servicos']);
+  update(): void {
+    this.ordemServicoService.update(this.formulario.value as OrdemServico).subscribe(() => {
+      this.toast.success('Ordem de Serviço atualizada com sucesso', 'Atualizar');
+      this.router.navigate(['ordens-servicos'])
     }, ex => {
-      if(ex.error.errors) {
+      if (ex.error.errors) {
         ex.error.errors.forEach((element: { message: string | undefined; }) => {
           this.toast.error(element.message);
         });
@@ -122,7 +154,7 @@ export class OrdemservicoCreateComponent {
     return this.formulario.valid;
   }
 
-  cancelar(){
+  cancelar() {
     this.router.navigate(['ordens-servicos']);
   }
 

@@ -1,5 +1,4 @@
 import { Itens } from "./Itens";
-
 export interface OrdemServico{
   id?: any;
   status?: string;
@@ -9,5 +8,5 @@ export interface OrdemServico{
   veiculo?: any;
   proprietarioNome?: string;
   valorTotal?: number;
-  itens?: Itens
+  itens?: Itens[]
 }

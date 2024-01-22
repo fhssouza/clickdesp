@@ -39,6 +39,7 @@ import { TelefoneMaskDirective } from './shared/directives/telefone-mask.directi
 import { CpfCnpjPipe } from './shared/pipe/cpf-cnpj.pipe';
 import { PhonePipe } from './shared/pipe/phone.pipe';
 import { OrdemservicoCreateComponent } from './components/ordem-servico/ordemservico-create/ordemservico-create.component';
+import { OrdemservicoUpdateComponent } from './components/ordem-servico/ordemservico-update/ordemservico-update.component';
 
 
 @NgModule({
@@ -72,6 +73,7 @@ import { OrdemservicoCreateComponent } from './components/ordem-servico/ordemser
     OrdemservicoListComponent,
     SidebarComponent,
     OrdemservicoCreateComponent,
+    OrdemservicoUpdateComponent,
   ],
   imports: [
     BrowserModule,
