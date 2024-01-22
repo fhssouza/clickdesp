@@ -39,4 +39,9 @@ export class OrdemservicoService {
     const url = `${this.API}/${ordemServico.id}/cancelada`;
     return this.http.put<OrdemServico>(url, ordemServico);
   }
+
+  finish(ordemServico: OrdemServico): Observable<OrdemServico> {
+    const url = `${this.API}/${ordemServico.id}/finalizada`;
+    return this.http.put<OrdemServico>(url, ordemServico);
+  }
 }

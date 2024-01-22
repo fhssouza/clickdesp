@@ -41,6 +41,7 @@ import { PhonePipe } from './shared/pipe/phone.pipe';
 import { OrdemservicoCreateComponent } from './components/ordem-servico/ordemservico-create/ordemservico-create.component';
 import { OrdemservicoUpdateComponent } from './components/ordem-servico/ordemservico-update/ordemservico-update.component';
 import { OrdemservicoCancelComponent } from './components/ordem-servico/ordemservico-cancel/ordemservico-cancel.component';
+import { OrdemservicoFinishComponent } from './components/ordem-servico/ordemservico-finish/ordemservico-finish.component';
 
 
 @NgModule({
@@ -76,6 +77,7 @@ import { OrdemservicoCancelComponent } from './components/ordem-servico/ordemser
     OrdemservicoCreateComponent,
     OrdemservicoUpdateComponent,
     OrdemservicoCancelComponent,
+    OrdemservicoFinishComponent,
   ],
   imports: [
     BrowserModule,
