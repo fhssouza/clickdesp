@@ -1,58 +1,35 @@
-<div class="container p-2  m-2">
+<div class="container p-2 m-2">
   <h3><i class="bi bi-card-checklist"></i> Lista de Ordens de Serviços</h3>
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <button class="btn btn-primary me-md-2" type="button" routerLink="/ordens-servicos/create">Nova Ordem Serviço</button>
+    <button class="btn btn-primary me-md-2 m-2 " type="button" routerLink="/ordens-servicos/create">Nova Ordem Serviço</button>
   </div>
-  <div class="table-responsive">
-  <table class="table table-striped align-middle table-hover table-sm">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Código</th>
-        <th scope="col">Status</th>
-        <th scope="col">Veiculo</th>
-        <th scope="col">Proprietario</th>
-        <th scope="col">Tipo de Serviço</th>
-        <th scope="col">Valor Total</th>
-        <th scope="col">Observação</th>
-      </tr>
-    </thead>
-    <tbody class="table-group-divider" >
-      <tr *ngFor="let os of ordensservicos">
-        <th scope="row"><i class="bi bi-caret-right"></i></th>
-        <td>{{ os.id }}</td>
-        <td>{{ os.status }}</td>
-        <td>{{ os.veiculoPlaca }}</td>
-        <td>{{ os.proprietarioNome }}</td>
-        <td>{{ os.tipoServico }}</td>
-        <td>{{ os.valorTotal | currency : 'BRL' }}</td>
-        <td>{{ os.observacao }}</td>
-        <td>
-          <button type="button"
-          class="btn btn-primary"
-          tooltip="Serviços"
-          routerLink="/ordens-servicos/update/{{ os.id }}">
-          <i class="bi bi-card-checklist"></i>
-        </button>
-        </td>
-        <td>
-          <button type="button"
-          class="btn btn-danger"
-          tooltip="Cancelar"
-          routerLink="/ordens-servicos/cancel/{{ os.id }}">
-          <i class="bi bi-trash"></i>
-        </button>
-        </td>
-        <td>
-          <button type="button"
-          class="btn btn-warning"
-          tooltip="Finalizar"
-          routerLink="/ordens-servicos/finish/{{ os.id }}">
-          <i class="bi bi-slash-circle"></i>
-        </button>
-        </td>
-      </tr>
-    </tbody>
-    </table>
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div *ngFor="let os of ordensservicos" class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Ordem de Serviço #{{ os.id }}</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Código: {{ os.id }}</li>
+            <li class="list-group-item">Status: {{ os.status }}</li>
+            <li class="list-group-item">Veículo: {{ os.veiculoPlaca }}</li>
+            <li class="list-group-item">Proprietário: {{ os.proprietarioNome }}</li>
+            <li class="list-group-item">Tipo de Serviço: {{ os.tipoServico }}</li>
+            <li class="list-group-item">Valor Total: {{ os.valorTotal | currency : 'BRL' }}</li>
+            <li class="list-group-item">Observação: {{ os.observacao }}</li>
+          </ul>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+            <button type="button" class="btn btn-primary" tooltip="Serviços" routerLink="/ordens-servicos/update/{{ os.id }}">
+              <i class="bi bi-card-checklist"></i> Detalhes
+            </button>
+            <button type="button" class="btn btn-danger" tooltip="Cancelar" routerLink="/ordens-servicos/cancel/{{ os.id }}">
+              <i class="bi bi-trash"></i> Cancelar
+            </button>
+            <button type="button" class="btn btn-warning" tooltip="Finalizar" routerLink="/ordens-servicos/finish/{{ os.id }}">
+              <i class="bi bi-slash-circle"></i> Finalizar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
