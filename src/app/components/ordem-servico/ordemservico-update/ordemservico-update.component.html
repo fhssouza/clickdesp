@@ -1,128 +1,109 @@
-<div class="container p-2  m-2">
-  <h3><i class="bi bi-card-checklist"></i> Adicionar Ordem de Serviço</h3>
-  <form [formGroup]="formulario" (ngSubmit)="update()">
-
-    <div class="form-floating mb-3">
-      <select class="form-select"
-      aria-label="Default select example"
-      id="veiculo"
-      name="veiculo"
-      placeholder="veiculo"
-      formControlName="veiculo"
-      required>
-        <option value="" disabled selected>Selecione a placa do veículo...</option>
-        <option *ngFor="let veiculo of veiculos" [value]="veiculo.id" >{{ veiculo.placa }}</option>
-      </select>
-      <label for="veiculo">Placa</label>
+<div class="container p-2 m-2">
+  <div class="card mb-3">
+    <div class="card-header">
+      <h3><i class="bi bi-card-checklist"></i> Adicionar Ordem de Serviço</h3>
     </div>
+    <div class="card-body">
+      <form [formGroup]="formulario" (ngSubmit)="update()">
 
-    <div class="form-floating mb-3">
-      <input type="text"
-      class="form-control"
-      id="tipoServico"
-      name="tipoServico"
-      placeholder="tipoServico"
-      formControlName="tipoServico"
-      required>
-      <label for="floatingInput">Tipo de Servico</label>
+        <!-- Veículo Form Group -->
+        <div class="form-floating mb-3">
+          <select class="form-select" aria-label="Default select example" id="veiculo" name="veiculo"
+            placeholder="veiculo" formControlName="veiculo" required>
+            <option value="" disabled selected>Selecione a placa do veículo...</option>
+            <option *ngFor="let veiculo of veiculos" [value]="veiculo.id">{{ veiculo.placa }}</option>
+          </select>
+          <label for="veiculo">Placa</label>
+        </div>
+
+        <!-- Tipo de Serviço Form Group -->
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="tipoServico" name="tipoServico" placeholder="tipoServico"
+            formControlName="tipoServico" required>
+          <label for="floatingInput">Tipo de Servico</label>
+        </div>
+
+        <!-- Observação Form Group -->
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="observacao" name="observacao" placeholder="observacao"
+            formControlName="observacao" required>
+          <label for="floatingInput">Observacao</label>
+        </div>
+
+
+
+  <!-- Serviços Card -->
+  <div class="card mb-3">
+    <div class="card-header">
+      <h4><i class="bi bi-card-checklist"></i> Serviços</h4>
     </div>
+    <div class="card-body">
+      <form [formGroup]="formulario" (ngSubmit)="update()">
 
-    <div class="form-floating mb-3">
-      <input type="text"
-      class="form-control"
-      id="observacao"
-      name="observacao"
-      placeholder="observacao"
-      formControlName="observacao"
-
-      required>
-      <label for="floatingInput">Observacao</label>
-    </div>
-
-    <div class="container p-2  m-2">
-      <h4><i class="bi bi-card-checklist"></i>Serviços</h4>
-
-      <div formArrayName="itens">
-        <div *ngFor="let item of itensFormArray.controls; let i=index" [formGroupName]="i">
+        <div formArrayName="itens">
+          <div *ngFor="let item of itensFormArray.controls; let i=index" [formGroupName]="i">
             <div class="d-grid p-1 d-md-flex justify-content-md-end form-group">
-              <button type="button"
-              class="btn btn-danger"
-              tooltip="Deletar"
-              (click)="removerItem(i)">
+              <button type="button" class="btn btn-danger" tooltip="Deletar" (click)="removerItem(i)">
                 <i class="bi bi-trash"></i>
               </button>
             </div>
+
+            <!-- Quantidade Form Group -->
             <div class="form-floating mb-3">
-              <input type="text"
-              class="form-control"
-              id="quantidade"
-              name="quantidade"
-              placeholder="quantidade"
-              formControlName="quantidade"
-                required>
+              <input type="text" class="form-control" id="quantidade" name="quantidade" placeholder="quantidade"
+                formControlName="quantidade" required>
               <label for="floatingInput">Quantidade</label>
             </div>
 
+            <!-- Serviço Form Group -->
             <div class="form-floating mb-3">
-              <select class="form-select"
-              aria-label="Default select example"
-              id="servico"
-              name="servico"
-              placeholder="servico"
-              formControlName="servico"
-              (change)="atualizarPreco(i)"
-              required>
+              <select class="form-select" aria-label="Default select example" id="servico" name="servico"
+                placeholder="servico" formControlName="servico" (change)="atualizarPreco(i)" required>
                 <option value="" disabled selected>Selecione o servico...</option>
                 <option *ngFor="let servico of servicos" [value]="servico.id">{{ servico.descricao }}</option>
               </select>
               <label for="floatingInput">Servico</label>
             </div>
 
+            <!-- Preço Form Group -->
             <div class="form-floating mb-3">
-              <input type="text"
-              class="form-control"
-              id="preco"
-              name="preco"
-              placeholder="preco"
-              formControlName="preco"
-              required>
+              <input type="text" class="form-control" id="preco" name="preco" placeholder="preco"
+                formControlName="preco" required>
               <label for="floatingInput">preco</label>
             </div>
 
+            <!-- Desconto Form Group -->
             <div class="form-floating mb-3">
-              <input type="text"
-              class="form-control"
-              id="desconto"
-              name="desconto"
-              placeholder="desconto"
-              formControlName="desconto"
-              required>
+              <input type="text" class="form-control" id="desconto" name="desconto" placeholder="desconto"
+                formControlName="desconto" required>
               <label for="floatingInput">desconto</label>
-              <hr/>
+              <hr />
             </div>
+
           </div>
         </div>
-      </div>
 
-      <div class="d-grid p-1 d-md-flex">
-        <button type="button"
-        class="btn btn-primary"
-        tooltip="Adicionar Serviço"
-        (click)="addItens()">
-          <i class="bi bi-pencil-square"> Adicionar Serviços</i>
-        </button>
-      </div>
+        <!-- Adicionar Serviço Button -->
+        <div class="d-grid p-1 d-md-flex">
+          <button type="button" class="btn btn-primary" tooltip="Adicionar Serviço" (click)="addItens()">
+            <i class="bi bi-pencil-square"> Adicionar Serviços</i>
+          </button>
+        </div>
 
+      </form>
+    </div>
+  </div>
+
+  <!-- Botões de Ação Card -->
+  <div class="card">
+    <div class="card-body">
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <button class="btn btn-primary" type="submit">Salvar</button>
-        <button
-        (click)="cancelar()"
-        class="btn btn-danger"
-        type="button"
-        routerLink="/servicos">Cancelar</button>
+        <button (click)="cancelar()" class="btn btn-danger" type="button" routerLink="/servicos">Cancelar</button>
       </div>
-
-
-  </form>
+    </div>
+  </div>
+</form>
 </div>
-
+</div>
+</div>
