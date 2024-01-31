@@ -1,0 +1,43 @@
+<div class="container p-2  m-2">
+  <h3><i class="bi bi-card-checklist"></i> Lista de Tipos de Serviços</h3>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-primary me-md-2" type="button" routerLink="/categorias/create">Novo Tipo Serviço</button>
+  </div>
+  <div class="table-responsive">
+  <table class="table table-striped align-middle table-hover table-sm">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Código</th>
+        <th scope="col">Descrição</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let tipos of tiposServicos">
+        <th scope="row"><i class="bi bi-caret-right"></i></th>
+        <td>{{ tipos.id }}</td>
+        <td>{{ tipos.descricao }}</td>
+        <td>
+          <button type="button"
+          class="btn btn-danger"
+          tooltip="Deletar"
+          routerLink="/tipos-servicos/delete/{{ tipos.id }}">
+          <i class="bi bi-trash"></i>
+        </button>
+        </td>
+        <td>
+          <button type="button"
+          class="btn btn-primary"
+          tooltip="Atualizar"
+          routerLink="/tipos-servicos/update/{{ tipos.id }}">
+          <i class="bi bi-pencil-square"></i>
+        </button>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+</div>
+
+
+
