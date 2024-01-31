@@ -1,3 +1,4 @@
+import { TiposervicoCreateComponent } from './components/tipo-servico/tiposervico-create/tiposervico-create.component';
 import { TiposervicoListComponent } from './components/tipo-servico/tiposervico-list/tiposervico-list.component';
 import { OrdemservicoFinishComponent } from './components/ordem-servico/ordemservico-finish/ordemservico-finish.component';
 import { OrdemservicoCancelComponent } from './components/ordem-servico/ordemservico-cancel/ordemservico-cancel.component';
@@ -59,6 +60,7 @@ const routes: Routes = [
     { path: 'servicos/delete/:id', component: ExcluirServicoComponent, canActivate:[authGuard] },
 
     { path: 'tipos-servicos', component: TiposervicoListComponent, canActivate:[authGuard] },
+    { path: 'tipos-servicos/create', component: TiposervicoCreateComponent, canActivate:[authGuard] },
 
     { path: 'ordens-servicos', component: OrdemservicoListComponent, canActivate:[authGuard] },
     { path: 'ordens-servicos/create', component: OrdemservicoCreateComponent, canActivate:[authGuard] },
