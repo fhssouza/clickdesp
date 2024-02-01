@@ -45,6 +45,7 @@ import { OrdemservicoFinishComponent } from './components/ordem-servico/ordemser
 import { TiposervicoListComponent } from './components/tipo-servico/tiposervico-list/tiposervico-list.component';
 import { TiposervicoCreateComponent } from './components/tipo-servico/tiposervico-create/tiposervico-create.component';
 import { TiposervicoUpdateComponent } from './components/tipo-servico/tiposervico-update/tiposervico-update.component';
+import { TiposervicoDeleteComponent } from './components/tipo-servico/tiposervico-delete/tiposervico-delete.component';
 
 
 @NgModule({
@@ -84,6 +85,7 @@ import { TiposervicoUpdateComponent } from './components/tipo-servico/tiposervic
     TiposervicoListComponent,
     TiposervicoCreateComponent,
     TiposervicoUpdateComponent,
+    TiposervicoDeleteComponent,
   ],
   imports: [
     BrowserModule,
