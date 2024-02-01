@@ -15,9 +15,12 @@
         </div>
 
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="tipoServico" name="tipoServico" placeholder="tipoServico"
-            formControlName="tipoServico" required>
-          <label for="tipoServico">Tipo de Servico</label>
+          <select class="form-select" aria-label="Default select example" id="tipoServico" name="tipoServico"
+            placeholder="tipoServico" formControlName="tipoServico" required>
+            <option value="" disabled selected>Selecione o Tipo de Servico...</option>
+            <option *ngFor="let tipo of tiposServicos" [ngValue]="tipo.id">{{ tipo.descricao }}</option>
+          </select>
+          <label for="veiculo">Tipo Serviço</label>
         </div>
 
         <div class="form-floating mb-3">

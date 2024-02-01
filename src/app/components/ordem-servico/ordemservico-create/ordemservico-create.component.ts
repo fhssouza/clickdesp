@@ -5,9 +5,11 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { OrdemServico } from 'src/app/models/OrdemServico';
 import { Servico } from 'src/app/models/Servico';
+import { TipoServico } from 'src/app/models/TipoServico';
 import { Veiculo } from 'src/app/models/Veiculo';
 import { OrdemservicoService } from 'src/app/services/ordemservico.service';
 import { ServicoService } from 'src/app/services/servico.service';
+import { TiposervicoService } from 'src/app/services/tiposervico.service';
 import { VeiculoService } from 'src/app/services/veiculo.service';
 
 @Component({
@@ -20,6 +22,8 @@ export class OrdemservicoCreateComponent {
   formulario: FormGroup;
 
   veiculos: Veiculo[] = [];
+
+  tiposServicos: TipoServico[] = [];
 
   servicos: Servico[] = [];
 
@@ -36,6 +40,7 @@ export class OrdemservicoCreateComponent {
   constructor(
     private servicoService: ServicoService,
     private veiculoService: VeiculoService,
+    private tipoServicoService: TiposervicoService,
     private ordemServicoService: OrdemservicoService,
     private router: Router,
     private toast: ToastrService,
@@ -45,6 +50,7 @@ export class OrdemservicoCreateComponent {
 
   ngOnInit(): void {
     this.findAllVeiculos();
+    this.findAllTiposServicos();
     this.findAllServicos();
     this.inicializarFormulario();
   }
@@ -52,6 +58,11 @@ export class OrdemservicoCreateComponent {
   findAllVeiculos(): void {
     this.veiculoService.findAll()
       .subscribe(respose => this.veiculos = respose);
+  }
+
+  findAllTiposServicos(): void {
+    this.tipoServicoService.findAll()
+      .subscribe(respose => this.tiposServicos = respose);
   }
 
   findAllServicos(): void {
