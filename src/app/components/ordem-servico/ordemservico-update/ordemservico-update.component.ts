@@ -9,6 +9,7 @@ import { Servico } from 'src/app/models/Servico';
 import { Veiculo } from 'src/app/models/Veiculo';
 import { OrdemservicoService } from 'src/app/services/ordemservico.service';
 import { ServicoService } from 'src/app/services/servico.service';
+import { TiposervicoService } from 'src/app/services/tiposervico.service';
 import { VeiculoService } from 'src/app/services/veiculo.service';
 
 @Component({
@@ -18,13 +19,15 @@ import { VeiculoService } from 'src/app/services/veiculo.service';
 })
 export class OrdemservicoUpdateComponent {
 
+  veiculoId: number;
+
+  tipoServicoId: number;
+
   orderId: number;
 
   listitens: Itens[] = [];
 
   formulario: FormGroup;
-
-  veiculos: Veiculo[] = [];
 
   servicos: Servico[] = [];
 
@@ -40,6 +43,7 @@ export class OrdemservicoUpdateComponent {
     private servicoService: ServicoService,
     private veiculoService: VeiculoService,
     private ordemServicoService: OrdemservicoService,
+    private tipoServicoService: TiposervicoService,
     private router: Router,
     private route: ActivatedRoute,
     private toast: ToastrService,
@@ -49,15 +53,9 @@ export class OrdemservicoUpdateComponent {
 
   ngOnInit(): void {
     this.orderId = this.route.snapshot.params.id;
-    this.findAllVeiculos();
     this.findAllServicos();
     this.inicializarFormulario();
     this.carregarFormularioFindById()
-  }
-
-  findAllVeiculos(): void {
-    this.veiculoService.findAll()
-      .subscribe(respose => this.veiculos = respose);
   }
 
   findAllServicos(): void {
@@ -79,9 +77,20 @@ export class OrdemservicoUpdateComponent {
 
     this.ordemServicoService.findById(this.orderId).subscribe(ordemServico => {
 
+      this.veiculoService.getVeiculoIdByPlaca(ordemServico.veiculoPlaca)
+        .subscribe(veiculoId => {
+          this.veiculoId = veiculoId;
+        });
+
+      this.tipoServicoService.getTipoServicoIdByDescricao(ordemServico.tipoServico)
+        .subscribe(tipoServicoId => {
+          this.tipoServicoId = tipoServicoId;
+        });
+
+
       this.formulario.patchValue({
         id: ordemServico.id,
-        veiculo: ordemServico.veiculo,
+        veiculo: ordemServico.veiculoPlaca,
         tipoServico: ordemServico.tipoServico,
         observacao: ordemServico.observacao,
       });
@@ -136,7 +145,15 @@ export class OrdemservicoUpdateComponent {
   }
 
   update(): void {
-    this.ordemServicoService.update(this.formulario.value as OrdemServico).subscribe(() => {
+    const ordemServicoAtualizada: OrdemServico = {
+      id: this.formulario.value.id,
+      veiculo: this.veiculoId,
+      tipoServico: this.tipoServicoId,
+      observacao: this.formulario.value.observacao,
+      itens: this.formulario.value.itens,
+    };
+
+    this.ordemServicoService.update(ordemServicoAtualizada).subscribe(() => {
       this.toast.success('Ordem de Serviço atualizada com sucesso', 'Atualizar');
       this.router.navigate(['ordens-servicos'])
     }, ex => {

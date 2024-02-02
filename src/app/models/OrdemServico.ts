@@ -2,7 +2,7 @@ import { Itens } from "./Itens";
 export interface OrdemServico{
   id?: any;
   status?: string;
-  tipoServico: string;
+  tipoServico: any;
   observacao: string;
   veiculoPlaca?: string;
   veiculo?: any;

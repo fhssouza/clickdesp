@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, map } from 'rxjs';
 import { Veiculo } from '../models/Veiculo';
 
 @Injectable({
@@ -33,5 +33,16 @@ export class VeiculoService {
   delete(id: number): Observable<Veiculo> {
     const url = `${this.API}/${id}`;
     return this.http.delete<Veiculo>(url);
+  }
+
+  getVeiculoIdByPlaca(placa: string): Observable<number> {
+    const url = `${this.API}/placa?placa=${placa}`;
+    return this.http.get<Veiculo>(url).pipe(
+      map(veiculo => {
+        if (veiculo && veiculo.id){
+          return veiculo.id;
+        }
+      })
+    )
   }
 }

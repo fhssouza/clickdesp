@@ -7,19 +7,16 @@
       <form [formGroup]="formulario" (ngSubmit)="update()">
 
         <!-- Veículo Form Group -->
-        <div class="form-floating mb-3">
-          <select class="form-select" aria-label="Default select example" id="veiculo" name="veiculo"
-            placeholder="veiculo" formControlName="veiculo" required>
-            <option value="" disabled selected>Selecione a placa do veículo...</option>
-            <option *ngFor="let veiculo of veiculos" [value]="veiculo.id">{{ veiculo.placa }}</option>
-          </select>
-          <label for="veiculo">Placa</label>
+       <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="veiculo" name="veiculo" placeholder="veiculo"
+            formControlName="veiculo" required readonly>
+          <label for="floatingInput">Veiculo</label>
         </div>
 
         <!-- Tipo de Serviço Form Group -->
         <div class="form-floating mb-3">
           <input type="text" class="form-control" id="tipoServico" name="tipoServico" placeholder="tipoServico"
-            formControlName="tipoServico" required>
+            formControlName="tipoServico" required readonly>
           <label for="floatingInput">Tipo de Servico</label>
         </div>
 

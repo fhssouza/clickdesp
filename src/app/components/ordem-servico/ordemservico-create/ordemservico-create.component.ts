@@ -28,10 +28,7 @@ export class OrdemservicoCreateComponent {
   servicos: Servico[] = [];
 
   ordemServico: OrdemServico = {
-    veiculo: {
-      id: 0,
-      placa: ''
-    },
+    veiculo: '',
     tipoServico: '',
     observacao: '',
     itens: []
