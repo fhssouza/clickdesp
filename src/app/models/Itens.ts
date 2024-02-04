@@ -3,5 +3,5 @@ export interface Itens{
   quantidade: number;
   servico?: any;
   desconto: number;
-  preco: '';
+  preco: number;
 }

@@ -99,10 +99,11 @@ export class OrdemservicoUpdateComponent {
       itensFormArray.clear();
 
       ordemServico.itens.forEach(item => {
+        let precoFormatado = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.preco);
         itensFormArray.push(this.fb.group({
           quantidade: item.quantidade,
           servico: item.servico.id,
-          preco: item.preco,
+          preco: precoFormatado,
           desconto: item.desconto,
         }));
       });

@@ -57,7 +57,7 @@
               <select class="form-select" aria-label="Default select example" id="servico" name="servico"
                 placeholder="servico" formControlName="servico" (change)="atualizarPreco(i)" required>
                 <option value="" disabled selected>Selecione o servico...</option>
-                <option *ngFor="let servico of servicos" [value]="servico.id">{{ servico.descricao }}</option>
+                <option *ngFor="let servico of servicos" [ngValue]="servico.id">{{ servico.descricao }}</option>
               </select>
               <label for="floatingInput">Servico</label>
             </div>
