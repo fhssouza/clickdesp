@@ -29,63 +29,52 @@
           <label for="observacao">Observacao</label>
         </div>
 
-        <!-- Services Card -->
-        <div class="card">
+        <!-- Serviços Card -->
+        <div class="card mb-3">
+          <div class="card-header">
+            <h4><i class="bi bi-card-checklist"></i> Serviços</h4>
+          </div>
           <div class="card-body">
-            <h4 class="card-title"><i class="bi bi-card-checklist"></i> Serviços</h4>
+              <div formArrayName="itens">
+                <div *ngFor="let item of itens.controls; let i=index" [formGroupName]="i">
+                  <!-- Adicionando a classe 'row' -->
+                  <div class="row">
+                    <!-- Serviço Form Group -->
+                    <label for="floatingInput" class="fw-semibold ">Serviço: {{i+1}}</label>
+                    <div class="form-floating mb-3 col-8 p-1">
+                      <select class="form-select" aria-label="Default select example" id="servico" name="servico"
+                        placeholder="servico" formControlName="servico" (change)="atualizarPreco(i)" required>
+                        <option value="" disabled selected>Selecione o servico...</option>
+                        <option *ngFor="let servico of servicos" [ngValue]="servico.id">{{ servico.descricao }}</option>
+                      </select>
+                      <label for="floatingInput">Servico</label>
+                    </div>
 
-            <div formArrayName="itens">
-              <div *ngFor="let item of itens.controls; let i=index">
-                <div [formGroupName]="i">
+                    <!-- Preço Form Group -->
+                    <div class="form-floating mb-3 col-3 p-1">
+                      <input type="text" class="form-control" id="preco" name="preco" placeholder="preco"
+                        formControlName="preco" required>
+                      <label for="floatingInput">Preço</label>
+                    </div>
 
-                  <!-- Service Details -->
-                  <div class="d-grid p-1 d-md-flex justify-content-md-end">
-                    <button type="button" class="btn btn-danger" tooltip="Deletar" (click)="removerItem(i)">
-                      <i class="bi bi-trash"></i>
-                    </button>
+                    <!-- Botão Deletar -->
+                    <div class="form-group mb-3 col-1 p-1">
+                      <button type="button" class="btn btn-danger" tooltip="Deletar" (click)="removerItem(i)">
+                        <i class="bi bi-trash"></i>
+                      </button>
+                    </div>
                   </div>
-
-                  <!-- <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="quantidade" name="quantidade" placeholder="quantidade"
-                      formControlName="quantidade" required>
-                    <label for="quantidade">Quantidade</label>
-                  </div> -->
-
-                  <div class="form-floating mb-3">
-                    <select class="form-select" aria-label="Default select example" id="servico" name="servico"
-                      placeholder="servico" formControlName="servico" (change)="atualizarPreco(i)" required>
-                      <option value="" disabled selected>Selecione o servico...</option>
-                      <option *ngFor="let servico of servicos" [ngValue]="servico.id">{{ servico.descricao }}</option>
-                    </select>
-                    <label for="servico">Servico</label>
-                  </div>
-
-                  <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="preco" name="preco" placeholder="preco"
-                      formControlName="preco" required>
-                    <label for="preco">Preço</label>
-                  </div>
-
-                  <!-- <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="desconto" name="desconto" placeholder="desconto"
-                      formControlName="desconto" required>
-                    <label for="desconto">Desconto</label>
-                    <hr />
-                  </div> -->
-
                 </div>
               </div>
-            </div>
 
-            <div class="d-grid p-1 d-md-flex">
-              <button type="button" class="btn btn-primary" tooltip="Adicionar Serviço" (click)="addItens()">
-                <i class="bi bi-pencil-square"> Adicionar Serviços</i>
-              </button>
-            </div>
-
+              <!-- Adicionar Serviço Button -->
+              <div class="d-grid p-1 d-md-flex">
+                <button type="button" class="btn btn-primary" tooltip="Adicionar Serviço" (click)="addItens()">
+                  <i class="bi bi-pencil-square"> Adicionar Serviços</i>
+                </button>
+              </div>
           </div>
         </div>
-
         <!-- Action Buttons -->
         <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
           <button class="btn btn-primary" type="submit">Salvar</button>
