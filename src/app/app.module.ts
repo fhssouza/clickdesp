@@ -46,6 +46,7 @@ import { TiposervicoListComponent } from './components/tipo-servico/tiposervico-
 import { TiposervicoCreateComponent } from './components/tipo-servico/tiposervico-create/tiposervico-create.component';
 import { TiposervicoUpdateComponent } from './components/tipo-servico/tiposervico-update/tiposervico-update.component';
 import { TiposervicoDeleteComponent } from './components/tipo-servico/tiposervico-delete/tiposervico-delete.component';
+import { ProprietarioAddressComponent } from './components/proprietario/proprietario-address/proprietario-address.component';
 
 
 @NgModule({
@@ -86,6 +87,7 @@ import { TiposervicoDeleteComponent } from './components/tipo-servico/tiposervic
     TiposervicoCreateComponent,
     TiposervicoUpdateComponent,
     TiposervicoDeleteComponent,
+    ProprietarioAddressComponent,
   ],
   imports: [
     BrowserModule,

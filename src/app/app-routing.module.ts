@@ -1,3 +1,4 @@
+import { ProprietarioAddressComponent } from './components/proprietario/proprietario-address/proprietario-address.component';
 import { TiposervicoDeleteComponent } from './components/tipo-servico/tiposervico-delete/tiposervico-delete.component';
 import { TiposervicoUpdateComponent } from './components/tipo-servico/tiposervico-update/tiposervico-update.component';
 import { TiposervicoCreateComponent } from './components/tipo-servico/tiposervico-create/tiposervico-create.component';
@@ -43,6 +44,7 @@ const routes: Routes = [
 
     { path: 'proprietarios', component: ProprietarioListComponent, canActivate:[authGuard]},
     { path: 'proprietarios/create', component: ProprietarioCreateComponent, canActivate:[authGuard] },
+    { path: 'proprietarios/address/:id', component: ProprietarioAddressComponent, canActivate:[authGuard] },
     { path: 'proprietarios/update/:id', component: ProprietarioUpdateComponent, canActivate:[authGuard] },
     { path: 'proprietarios/delete/:id', component: ProprietarioDeleteComponent, canActivate:[authGuard] },
 

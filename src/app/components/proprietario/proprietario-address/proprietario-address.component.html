@@ -1,0 +1,89 @@
+<div class="container p-2 m-2">
+  <h3><i class="bi bi-card-checklist"></i> Adicionar Endereço</h3>
+  <form [formGroup]="formulario" (ngSubmit)="addAddress()">
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control"
+      id="logradouro"
+      name="logradouro"
+      placeholder="Logradouro"
+      formControlName="logradouro"
+      required>
+      <label for="floatingInput">Logradouro</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control"
+      id="cep"
+      name="cep"
+      placeholder="CEP"
+      formControlName="cep"
+      required>
+      <label for="floatingInput">CEP</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control"
+      id="complemento"
+      name="complemento"
+      placeholder="Complemento"
+      formControlName="complemento"
+      required>
+      <label for="floatingInput">Complemento</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control"
+      id="localidade"
+      name="localidade"
+      placeholder="Localidade"
+      formControlName="localidade"
+      required>
+      <label for="floatingInput">Localidade</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control"
+      id="bairro"
+      name="bairro"
+      placeholder="Bairro"
+      formControlName="bairro"
+      required>
+      <label for="floatingInput">Bairro</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control"
+      id="uf"
+      name="uf"
+      placeholder="UF"
+      formControlName="uf"
+      required>
+      <label for="floatingInput">UF</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control"
+      id="ddd"
+      name="ddd"
+      placeholder="DDD"
+      formControlName="ddd"
+      required>
+      <label for="floatingInput">DDD</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control"
+      id="numero"
+      name="numero"
+      placeholder="Número"
+      formControlName="numero"
+      required>
+      <label for="floatingInput">Número</label>
+    </div>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary" type="submit" [disabled]="!validaCampos()">Adicionar Endereço</button>
+      <button (click)="cancelar()" class="btn btn-danger" type="button" routerLink="/proprietarios">Cancelar</button>
+    </div>
+  </form>

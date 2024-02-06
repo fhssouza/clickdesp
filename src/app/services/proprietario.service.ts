@@ -1,3 +1,4 @@
+import { Endereco } from './../models/Endereco';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Proprietario } from '../models/Proprietario';
@@ -34,4 +35,15 @@ export class ProprietarioService {
     const url = `${this.API}/${id}`;
     return this.http.delete<Proprietario>(url);
   }
+
+  addAddress(proprietarioId: number, endereco: Endereco): Observable<Proprietario>{
+    const url = `${this.API}/${proprietarioId}/enderecos/adicionar`
+    return this.http.post<Proprietario>(url, endereco);
+  }
+
+  findByIdProprietarioEndereco(proprietarioId: number): Observable<Endereco> {
+    const url = `${this.API}/${proprietarioId}/enderecos/listar`
+    return this.http.get<Endereco>(url)
+  }
+
 }
