@@ -47,6 +47,7 @@ import { TiposervicoCreateComponent } from './components/tipo-servico/tiposervic
 import { TiposervicoUpdateComponent } from './components/tipo-servico/tiposervico-update/tiposervico-update.component';
 import { TiposervicoDeleteComponent } from './components/tipo-servico/tiposervico-delete/tiposervico-delete.component';
 import { ProprietarioAddressComponent } from './components/proprietario/proprietario-address/proprietario-address.component';
+import { NgxViacepModule } from '@brunoc/ngx-viacep';
 
 
 @NgModule({
@@ -100,6 +101,7 @@ import { ProprietarioAddressComponent } from './components/proprietario/propriet
     NgxMaskDirective,
     NgxMaskPipe,
     CurrencyPipe,
+    NgxViacepModule,
     TooltipModule.forRoot(),
     ToastrModule.forRoot({
       timeOut: 4000,

@@ -42,7 +42,7 @@ export class ProprietarioService {
   }
 
   findByIdProprietarioEndereco(proprietarioId: number): Observable<Endereco> {
-    const url = `${this.API}/${proprietarioId}/enderecos/listar`
+    const url = `${this.API}/${proprietarioId}/enderecos`
     return this.http.get<Endereco>(url)
   }
 

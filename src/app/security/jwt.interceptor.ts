@@ -18,14 +18,16 @@ export class JwtInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const token = this.authenticationService.getToken();
 
-    if(token){
+  if(token && !request.url.startsWith('https://viacep.com.br/ws/')){
       request = request.clone({
         setHeaders: {
             Authorization: `Bearer ${token}`,
             token: `${token}`
         }
-    });
+      });
     }
     return next.handle(request);
   }
+
+
 }

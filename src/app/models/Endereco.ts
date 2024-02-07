@@ -6,7 +6,6 @@ export interface Endereco {
   localidade: string;
   bairro: string;
   uf: string;
-  ddd: string;
   numero: string;
-  principal?: boolean;
+  enderecos: Endereco[];
 }

@@ -18,6 +18,7 @@
     "@angular/platform-browser": "^16.1.0",
     "@angular/platform-browser-dynamic": "^16.1.0",
     "@angular/router": "^16.1.0",
+    "@brunoc/ngx-viacep": "^3.4.1",
     "bootstrap": "^5.3.2",
     "bootstrap-icons": "^1.10.5",
     "ngx-bootstrap": "^11.0.2",
