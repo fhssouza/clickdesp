@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Proprietario } from '../models/Proprietario';
 import { Observable } from 'rxjs';
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProprietarioService {
 
-  private readonly API = 'http://localhost:8080/clickdesp/proprietarios';
+  private readonly API = `${environment.API}proprietarios`;
 
   constructor(private http: HttpClient) { }
 

@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { Categoria } from './../models/Categoria';
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriaService {
 
-  private readonly API = 'http://localhost:8080/clickdesp/categorias'
+  private readonly API = `${environment.API}categorias`
 
   constructor(private http: HttpClient) { }
 

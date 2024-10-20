@@ -4,13 +4,14 @@ import { Injectable } from '@angular/core';
 import { Credencial } from '../models/Credencial';
 import { map } from 'rxjs';
 import { Router } from '@angular/router';
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  private readonly API = 'Http://localhost:8080/clickdesp/login';
+  private readonly API = `${environment.API}login`;
 
   constructor(
     private http: HttpClient,

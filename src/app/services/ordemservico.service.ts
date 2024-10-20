@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { OrdemServico } from '../models/OrdemServico';
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrdemservicoService {
 
-  private readonly API = 'http://localhost:8080/clickdesp/ordens-servicos';
+  private readonly API = `${environment.API}ordens-servicos`;
 
   constructor(private http: HttpClient) { }
 

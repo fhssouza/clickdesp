@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TipoServico } from '../models/TipoServico';
 import { Observable, catchError, map } from 'rxjs';
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root',
 })
 export class TiposervicoService {
-  private readonly API = 'http://localhost:8080/clickdesp/tiposervicos';
+  private readonly API = `${environment.API}tiposervicos`;
 
   constructor(private http: HttpClient) {}
 
