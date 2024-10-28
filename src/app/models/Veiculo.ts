@@ -7,7 +7,7 @@ export interface Veiculo{
   combustivel: string;
   procedencia: string;
   ano: number;
-  crv: number;
+  crv: string;
   dataCrv: string;
   chassi: string;
   alienacaoFinduciaria: string;

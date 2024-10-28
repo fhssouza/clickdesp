@@ -19,7 +19,7 @@ export class VeiculoDeleteComponent {
     combustivel: '',
     procedencia: '',
     ano: 0,
-    crv: 0,
+    crv: '',
     dataCrv: '',
     chassi: '',
     alienacaoFinduciaria: '',
