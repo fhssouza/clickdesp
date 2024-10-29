@@ -1,60 +1,131 @@
-<div class="container-fluid ">
-    <div class="row flex-nowrap ">
-        <div class="bg-dark col-auto col-md-4 col-lg-2  min-vh-100 d-flex flex-column justify-content-between ">
-            <div class="bg-dark p2">
-                <a class="d-flex text-decoration-none mt-1 align-items-center text-white  ">
-                    <span class="fs-4 d-none d-sm-inline ">Menu</span>
-                </a>
-                <ul class="nav nav-pills flex-column mt-4">
-                    <li class="nav-item py-2 py-sm-0 ">
-                        <a href="" class="nav-link text-white">
-                          <i class="bi bi-speedometer2"></i><span class="fs-4 ms-3 d-none d-sm-inline ">Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="nav-item py-2 py-sm-0 ">
-                        <a routerLink="/home" class="nav-link text-white">
-                          <i class="bi bi-house-check"></i><span class="fs-4 ms-3 d-none d-sm-inline ">Home</span>
-                        </a>
-                    </li>
-                    <li class="nav-item py-2 py-sm-0 ">
-                        <a routerLink="/proprietarios" class="nav-link text-white">
-                          <i class="bi bi-person-gear"></i><span class="fs-4 ms-3 d-none d-sm-inline ">Proprietários</span>
-                        </a>
-                    </li>
-                    <li class="nav-item py-2 py-sm-0 ">
-                        <a routerLink="/veiculos" class="nav-link text-white">
-                          <i class="bi bi-car-front-fill"></i><span class="fs-4 ms-3 d-none d-sm-inline ">Veículos</span>
-                        </a>
-                    </li>
-                    <li class="nav-item py-2 py-sm-0 ">
-                        <a routerLink="/categorias" class="nav-link text-white">
-                          <i class="bi bi-tags"></i><span class="fs-4 ms-3 d-none d-sm-inline ">Categorias</span>
-                        </a>
-                    </li>
-                    <li class="nav-item py-2 py-sm-0 ">
-                        <a routerLink="/servicos" class="nav-link text-white">
-                          <i class="bi bi-gear"></i><span class="fs-4 ms-3 d-none d-sm-inline ">Serviços</span>
-                        </a>
-                    </li>
-                    <li class="nav-item py-2 py-sm-0 ">
-                      <a routerLink="/tipos-servicos" class="nav-link text-white">
-                        <i class="bi bi-gear-wide-connected"></i><span class="fs-4 ms-3 d-none d-sm-inline ">Tipos de Serviços</span>
-                      </a>
-                  </li>
-                    <li class="nav-item py-2 py-sm-0 ">
-                      <a routerLink="/ordens-servicos" class="nav-link text-white">
-                        <i class="bi bi-card-checklist"></i><span class="fs-4 ms-3 d-none d-sm-inline ">Ordens de Serviços</span>
-                      </a>
-                  </li>
-                </ul>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Navbar com o botão de "hamburger" para mobile -->
+    <nav class="navbar navbar-dark bg-dark d-md-none">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <span class="navbar-brand mb-0 h1">Menu</span>
+    </nav>
 
-            </div>
-            <div class="dropdown open p-3 ">
-              <button type="button" class="btn btn-dark" (click)="deslogar()"><i class="bi bi-box-arrow-right"></i> Sair</button>
-            </div>
-        </div>
-        <div class="">
-            <router-outlet></router-outlet>
-       </div>
+    <!-- Sidebar (offcanvas em telas menores) -->
+    <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title text-white" id="offcanvasSidebarLabel">Menu</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body p-2">
+        <!-- Menu items -->
+        <ul class="nav nav-pills flex-column mt-4">
+          <li class="nav-item py-2">
+            <a href="" class="nav-link text-white" data-bs-dismiss="offcanvas">
+              <i class="bi bi-speedometer2"></i><span class="fs-4 ms-3">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item py-2">
+            <a routerLink="/home" class="nav-link text-white" data-bs-dismiss="offcanvas">
+              <i class="bi bi-house-check"></i><span class="fs-4 ms-3">Home</span>
+            </a>
+          </li>
+          <li class="nav-item py-2">
+            <a routerLink="/proprietarios" class="nav-link text-white" data-bs-dismiss="offcanvas">
+              <i class="bi bi-person-gear"></i><span class="fs-4 ms-3">Proprietários</span>
+            </a>
+          </li>
+          <li class="nav-item py-2">
+            <a routerLink="/veiculos" class="nav-link text-white" data-bs-dismiss="offcanvas">
+              <i class="bi bi-car-front-fill"></i><span class="fs-4 ms-3">Veículos</span>
+            </a>
+          </li>
+          <li class="nav-item py-2">
+            <a routerLink="/categorias" class="nav-link text-white" data-bs-dismiss="offcanvas">
+              <i class="bi bi-tags"></i><span class="fs-4 ms-3">Categorias</span>
+            </a>
+          </li>
+          <li class="nav-item py-2">
+            <a routerLink="/servicos" class="nav-link text-white" data-bs-dismiss="offcanvas">
+              <i class="bi bi-gear"></i><span class="fs-4 ms-3">Serviços</span>
+            </a>
+          </li>
+          <li class="nav-item py-2">
+            <a routerLink="/tipos-servicos" class="nav-link text-white" data-bs-dismiss="offcanvas">
+              <i class="bi bi-gear-wide-connected"></i><span class="fs-4 ms-3">Tipos de Serviços</span>
+            </a>
+          </li>
+          <li class="nav-item py-2">
+            <a routerLink="/ordens-servicos" class="nav-link text-white" data-bs-dismiss="offcanvas">
+              <i class="bi bi-card-checklist"></i><span class="fs-4 ms-3">Ordens de Serviços</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="p-3">
+        <button type="button" class="btn btn-dark w-100" (click)="deslogar()"><i class="bi bi-box-arrow-right"></i> Sair</button>
+      </div>
     </div>
+
+    <!-- Sidebar visível em telas maiores -->
+    <div class="d-none d-md-block bg-dark col-md-4 col-lg-2 min-vh-100 d-flex flex-column justify-content-between">
+      <div class="bg-dark p-2">
+        <a class="d-flex text-decoration-none mt-1 align-items-center text-white">
+          <span class="fs-4">Menu</span>
+        </a>
+
+        <!-- Menu items (mesmo conteúdo do offcanvas) -->
+        <ul class="nav nav-pills flex-column mt-4">
+          <li class="nav-item py-2">
+            <a href="" class="nav-link text-white">
+              <i class="bi bi-speedometer2"></i><span class="fs-4 ms-3">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item py-2">
+            <a routerLink="/home" class="nav-link text-white">
+              <i class="bi bi-house-check"></i><span class="fs-4 ms-3">Home</span>
+            </a>
+          </li>
+          <li class="nav-item py-2">
+            <a routerLink="/proprietarios" class="nav-link text-white">
+              <i class="bi bi-person-gear"></i><span class="fs-4 ms-3">Proprietários</span>
+            </a>
+          </li>
+          <li class="nav-item py-2">
+            <a routerLink="/veiculos" class="nav-link text-white">
+              <i class="bi bi-car-front-fill"></i><span class="fs-4 ms-3">Veículos</span>
+            </a>
+          </li>
+          <li class="nav-item py-2">
+            <a routerLink="/categorias" class="nav-link text-white">
+              <i class="bi bi-tags"></i><span class="fs-4 ms-3">Categorias</span>
+            </a>
+          </li>
+          <li class="nav-item py-2">
+            <a routerLink="/servicos" class="nav-link text-white">
+              <i class="bi bi-gear"></i><span class="fs-4 ms-3">Serviços</span>
+            </a>
+          </li>
+          <li class="nav-item py-2">
+            <a routerLink="/tipos-servicos" class="nav-link text-white">
+              <i class="bi bi-gear-wide-connected"></i><span class="fs-4 ms-3">Tipos de Serviços</span>
+            </a>
+          </li>
+          <li class="nav-item py-2">
+            <a routerLink="/ordens-servicos" class="nav-link text-white">
+              <i class="bi bi-card-checklist"></i><span class="fs-4 ms-3">Ordens de Serviços</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="p-3">
+        <button type="button" class="btn btn-dark w-100" (click)="deslogar()"><i class="bi bi-box-arrow-right"></i> Sair</button>
+      </div>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="col px-0">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
+
+
+
