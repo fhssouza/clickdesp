@@ -47,7 +47,12 @@
       <div *ngIf="error" class="alert alert-danger mt-3 mb-0">Usuario com E-Mail já cadastrado!</div>
       <hr class="hr-light mb-3 mt-4">
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <div>Já tem conta?</div><button class="btn btn-outline-dark btn-sm" type="button" routerLink="/login">Login</button>
+        <div class="d-flex align-items-center mt-1">
+          <a class="link-secondary text-decoration-none d-flex align-items-center" routerLink="/login" aria-label="Voltar para login">
+            <i class="bi bi-arrow-left me-2"></i> <!-- Ícone de seta para voltar -->
+            Login
+          </a>
+        </div>
       </div>
       <p class="text-body-secondary mt-5 mb-5 ">© 2023 SouzaTech, Inc</p>
     </form>

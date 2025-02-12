@@ -32,12 +32,18 @@ import { VeiculoDeleteComponent } from './components/veiculo/veiculo-delete/veic
 import { VeiculoListComponent } from './components/veiculo/veiculo-list/veiculo-list.component';
 import { VeiculoUpdateComponent } from './components/veiculo/veiculo-update/veiculo-update.component';
 import { authGuard } from './security/auth.guard';
+import {
+  RequestResetPasswordComponent
+} from "./components/usuario/request-reset-password/request-reset-password.component";
+import {ResetPasswordComponent} from "./components/usuario/reset-password/reset-password.component";
 
 const routes: Routes = [
 
   // { path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
   { path: 'adicionarusuario', component: AdicionarUsuarioComponent },
+  { path: 'request-reset-password', component: RequestResetPasswordComponent },
+  { path: 'reset-password', component: ResetPasswordComponent },
 
   { path: '', component: SidebarComponent, canActivate:[authGuard], children:[
     { path: 'home', component: HomeComponent },

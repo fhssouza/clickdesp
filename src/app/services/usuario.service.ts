@@ -10,6 +10,7 @@ import {environment} from "../../environments/environment";
 export class UsuarioService {
 
   private readonly API = `${environment.API}usuarios`
+  private readonly RESET_PASSWORD_API = `${environment.API}auth`;
 
   constructor(
     private http: HttpClient
@@ -18,4 +19,13 @@ export class UsuarioService {
   create(usuario: Usuario): Observable<Usuario>{
     return this.http.post<Usuario>(this.API, usuario);
   }
+
+  requestResetPassword(email: string): Observable<any> {
+    return this.http.post(`${this.API}/request-reset-password`, { email });
+  }
+
+  resetPassword(email: string, token: string, newPassword: string): Observable<any> {
+    return this.http.post(`${this.RESET_PASSWORD_API}/reset-password`, { email, token, newPassword });
+  }
+
 }

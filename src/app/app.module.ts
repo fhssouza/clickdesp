@@ -48,6 +48,8 @@ import { TiposervicoUpdateComponent } from './components/tipo-servico/tiposervic
 import { TiposervicoDeleteComponent } from './components/tipo-servico/tiposervico-delete/tiposervico-delete.component';
 import { ProprietarioAddressComponent } from './components/proprietario/proprietario-address/proprietario-address.component';
 import { NgxViacepModule } from '@brunoc/ngx-viacep';
+import { RequestResetPasswordComponent } from './components/usuario/request-reset-password/request-reset-password.component';
+import { ResetPasswordComponent } from './components/usuario/reset-password/reset-password.component';
 
 
 @NgModule({
@@ -89,6 +91,8 @@ import { NgxViacepModule } from '@brunoc/ngx-viacep';
     TiposervicoUpdateComponent,
     TiposervicoDeleteComponent,
     ProprietarioAddressComponent,
+    RequestResetPasswordComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,
