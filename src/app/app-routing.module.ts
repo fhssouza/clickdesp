@@ -36,6 +36,7 @@ import {
   RequestResetPasswordComponent
 } from "./components/usuario/request-reset-password/request-reset-password.component";
 import {ResetPasswordComponent} from "./components/usuario/reset-password/reset-password.component";
+import {DashboardComponent} from "./components/dashboard/dashboard/dashboard.component";
 
 const routes: Routes = [
 
@@ -47,6 +48,8 @@ const routes: Routes = [
 
   { path: '', component: SidebarComponent, canActivate:[authGuard], children:[
     { path: 'home', component: HomeComponent },
+
+    { path: 'dashboard', component: DashboardComponent, canActivate:[authGuard]},
 
     { path: 'proprietarios', component: ProprietarioListComponent, canActivate:[authGuard]},
     { path: 'proprietarios/create', component: ProprietarioCreateComponent, canActivate:[authGuard] },

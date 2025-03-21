@@ -50,6 +50,8 @@ import { ProprietarioAddressComponent } from './components/proprietario/propriet
 import { NgxViacepModule } from '@brunoc/ngx-viacep';
 import { RequestResetPasswordComponent } from './components/usuario/request-reset-password/request-reset-password.component';
 import { ResetPasswordComponent } from './components/usuario/reset-password/reset-password.component';
+import { DashboardComponent } from './components/dashboard/dashboard/dashboard.component';
+import {NgChartsModule} from "ng2-charts";
 
 
 @NgModule({
@@ -93,6 +95,7 @@ import { ResetPasswordComponent } from './components/usuario/reset-password/rese
     ProprietarioAddressComponent,
     RequestResetPasswordComponent,
     ResetPasswordComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -106,6 +109,7 @@ import { ResetPasswordComponent } from './components/usuario/reset-password/rese
     NgxMaskPipe,
     CurrencyPipe,
     NgxViacepModule,
+    NgChartsModule,
     TooltipModule.forRoot(),
     ToastrModule.forRoot({
       timeOut: 4000,
