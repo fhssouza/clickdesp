@@ -20,4 +20,8 @@ export class DashboardService {
   getProprietariosPorMes(): Observable<any[]> {
     return this.http.get<any[]>(`${this.API}proprietarios-por-mes`);
   }
+
+  getVeiculosPorMes(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.API}veiculos-por-mes`);
+  }
 }

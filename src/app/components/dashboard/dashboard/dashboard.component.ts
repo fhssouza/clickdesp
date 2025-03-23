@@ -26,6 +26,17 @@ export class DashboardComponent {
     }
   ];
 
+  veiculosPorMesLabels: string[] = [];
+  veiculosPorMesData: ChartDataset[] = [
+    {
+      label: 'Veículos',
+      data: [],
+      backgroundColor: [],
+      borderColor: [],
+      borderWidth: 1
+    }
+  ];
+
   barChartOptions: ChartOptions = {
     responsive: true,
     scales: {
@@ -53,6 +64,7 @@ export class DashboardComponent {
   ngOnInit(): void {
     this.getEstatisticas();
     this.carregarDadosProprietariosPorMes();
+    this.carregarDadosVeiculosPorMes()
   }
 
   getEstatisticas(): void {
@@ -67,6 +79,21 @@ export class DashboardComponent {
       this.proprietariosPorMesData = [
         {
           label: 'Proprietários',
+          data: data.map(item => item.total),
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        }
+      ];
+    });
+  }
+
+  carregarDadosVeiculosPorMes(): void {
+    this.dashboardService.getVeiculosPorMes().subscribe(data => {
+      this.veiculosPorMesLabels = data.map(item => this.formatarMesAno(item.mes, item.ano));
+      this.veiculosPorMesData = [
+        {
+          label: 'Veículos',
           data: data.map(item => item.total),
           backgroundColor: 'rgba(75, 192, 192, 0.2)',
           borderColor: 'rgba(75, 192, 192, 1)',
