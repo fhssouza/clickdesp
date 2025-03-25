@@ -15,6 +15,10 @@ export class DashboardComponent {
     totalOrdemServico: 0,
   };
 
+  ordemServicoTotalAbertas: number = 0;
+  ordemServicoTotalFinalizadas: number = 0;
+  ordemServicoTotalCanceladas: number = 0;
+
   proprietariosPorMesLabels: string[] = [];
   proprietariosPorMesData: ChartDataset[] = [
     {
@@ -59,12 +63,39 @@ export class DashboardComponent {
   barChartLegend = true;
   barChartType: ChartType = 'bar';
 
+  ordemServicoStatusChartLabels: string[] = ['Abertas', 'Finalizadas', 'Canceladas'];
+  ordemServicoStatusChartData: number[] = [0, 0, 0];
+  chartColors: any[] = [
+    { backgroundColor: ['#FFC107', '#28A745', '#DC3545'] }
+  ];
+  chartOptions: any = { responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'top',
+        labels: {
+          boxWidth: 10,
+          font: {
+            size: 12,
+          },
+        },
+      },
+    },
+    elements: {
+      arc: {
+        borderWidth: 2,
+        borderColor: '#FFFFFF',
+      },
+    },
+  };
+
   constructor(private dashboardService: DashboardService) { }
 
   ngOnInit(): void {
     this.getEstatisticas();
     this.carregarDadosProprietariosPorMes();
-    this.carregarDadosVeiculosPorMes()
+    this.carregarDadosVeiculosPorMes();
+    this.carregarOrdemServicoTotaisPorStatus();
   }
 
   getEstatisticas(): void {
@@ -80,8 +111,8 @@ export class DashboardComponent {
         {
           label: 'Proprietários',
           data: data.map(item => item.total),
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-          borderColor: 'rgba(75, 192, 192, 1)',
+          backgroundColor: 'rgba(139,218,113,0.7)',
+          borderColor: 'rgb(247,250,250)',
           borderWidth: 1
         }
       ];
@@ -95,12 +126,30 @@ export class DashboardComponent {
         {
           label: 'Veículos',
           data: data.map(item => item.total),
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-          borderColor: 'rgba(75, 192, 192, 1)',
+          backgroundColor: 'rgba(60,164,248,0.75)',
+          borderColor: 'rgba(247,250,250)',
           borderWidth: 1
         }
       ];
     });
+  }
+
+  carregarOrdemServicoTotaisPorStatus() {
+    this.dashboardService.getOrdemServicoTotaisPorStatus().subscribe(
+      data => {
+        this.ordemServicoStatusChartData = [
+          data.find(d => d.status === 'ABERTA')?.total || 0,
+          data.find(d => d.status === 'FINALIZADA')?.total || 0,
+          data.find(d => d.status === 'CANCELADA')?.total || 0
+        ];
+        this.ordemServicoTotalAbertas = this.ordemServicoStatusChartData[0];
+        this.ordemServicoTotalFinalizadas = this.ordemServicoStatusChartData[1];
+        this.ordemServicoTotalCanceladas = this.ordemServicoStatusChartData[2];
+      },
+      error => {
+        console.error('Erro ao carregar totais por status', error);
+      }
+    );
   }
 
   formatarMesAno(mes: number, ano: number): string {

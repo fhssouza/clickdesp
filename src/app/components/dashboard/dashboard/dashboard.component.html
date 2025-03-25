@@ -1,9 +1,9 @@
 <div class="container p-2 m-2">
   <h3><i class="bi bi-speedometer2"></i> Dashboard</h3>
-  <div class="row">
 
+  <div class="row">
     <div class="col-12 col-sm-6 col-md-4 mb-4">
-      <div class="card text-white bg-primary">
+      <div class="card text-white bg-primary h-100">
         <div class="card-body">
           <h5 class="card-title">Total de Veículos</h5>
           <p class="card-text display-4">{{ estatisticas.totalVeiculos }}</p>
@@ -12,7 +12,7 @@
     </div>
 
     <div class="col-12 col-sm-6 col-md-4 mb-4">
-      <div class="card text-white bg-success">
+      <div class="card text-white bg-success h-100">
         <div class="card-body">
           <h5 class="card-title">Total de Proprietários</h5>
           <p class="card-text display-4">{{ estatisticas.totalProprietarios }}</p>
@@ -21,19 +21,68 @@
     </div>
 
     <div class="col-12 col-sm-6 col-md-4 mb-4">
-      <div class="card text-white bg-info">
+      <div class="card text-white bg-info h-100">
         <div class="card-body">
-          <h5 class="card-title">Ordens de Serviços</h5>
+          <h5 class="card-title">Total de Ordens de Serviço</h5>
           <p class="card-text display-4">{{ estatisticas.totalOrdemServico }}</p>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="row mb-4">
-      <div class="col-12 col-md-6 mb-4 mb-md-0">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Total de Proprietários por Mês</h5>
+  <div class="row">
+
+    <div class="col-12 col-sm-6 col-md-4 mb-4">
+      <div class="card text-white bg-warning h-100">
+        <div class="card-body">
+          <h5 class="card-title">Ordens Abertas</h5>
+          <p class="card-text display-4">{{ ordemServicoTotalAbertas }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-4 mb-4">
+      <div class="card text-white bg-danger h-100">
+        <div class="card-body">
+          <h5 class="card-title">Ordens Canceladas</h5>
+          <p class="card-text display-4">{{ ordemServicoTotalCanceladas }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-4 mb-4">
+      <div class="card text-white bg-secondary h-100">
+        <div class="card-body">
+          <h5 class="card-title">Ordens Finalizadas</h5>
+          <p class="card-text display-4">{{ ordemServicoTotalFinalizadas }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Status das Ordens de Serviço</h5>
+          <div class="chart-container doughnut-chart">
+            <canvas baseChart
+                    [datasets]="[{ data: ordemServicoStatusChartData }]"
+                    [labels]="ordemServicoStatusChartLabels"
+                    [options]="chartOptions"
+                    [legend]="true"
+                    [type]="'doughnut'">
+            </canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Total de Proprietários por Mês</h5>
+          <div class="chart-container">
             <canvas baseChart
                     [datasets]="proprietariosPorMesData"
                     [labels]="proprietariosPorMesLabels"
@@ -44,10 +93,13 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-6">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Total de Veículos por Mês</h5>
+    </div>
+
+    <div class="col-12 col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Total de Veículos por Mês</h5>
+          <div class="chart-container">
             <canvas baseChart
                     [datasets]="veiculosPorMesData"
                     [labels]="veiculosPorMesLabels"
@@ -59,6 +111,5 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>

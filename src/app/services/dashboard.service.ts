@@ -24,4 +24,8 @@ export class DashboardService {
   getVeiculosPorMes(): Observable<any[]> {
     return this.http.get<any[]>(`${this.API}veiculos-por-mes`);
   }
+
+  getOrdemServicoTotaisPorStatus(): Observable<{ status: string, total: number }[]> {
+    return this.http.get<{ status: string, total: number }[]>(`${this.API}ordem-servico-totais-por-status`);
+  }
 }
