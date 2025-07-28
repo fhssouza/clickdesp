@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {LicenciamentoService} from "../../../services/licenciamento.service";
 import {ToastrService} from "ngx-toastr";
 import {Router} from "@angular/router";
-import {Veiculo} from "../../../models/Veiculo";
 import {Licenciamento} from "../../../models/Licenciamento";
 
 @Component({
