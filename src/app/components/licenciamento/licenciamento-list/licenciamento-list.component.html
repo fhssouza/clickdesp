@@ -1,0 +1,49 @@
+<div class="container p-2  m-2">
+  <h3><i class="bi bi-card-checklist"></i> Tabela de Licenciamentos</h3>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-primary me-md-2" type="button" routerLink="/licenciamentos/create">Novo Licenciamento</button>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-striped align-middle table-hover table-sm">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Código</th>
+        <th scope="col">Final da Placa</th>
+        <th scope="col">Data de Vencimento</th>
+        <th scope="col">Ano de Referência</th>
+      </tr>
+      </thead>
+      <tbody class="table-group-divider" >
+      <tr *ngFor="let lic of licenciamentos | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+        <th scope="row"><i class="bi bi-caret-right"></i></th>
+        <td>{{ lic.id }}</td>
+        <td>{{ lic.finaPlaca }}</td>
+        <td>{{ lic.dataVencimento }}</td>
+        <td>{{ lic.anoReferencia }}</td>
+        <td>
+          <button type="button"
+                  class="btn btn-danger"
+                  tooltip="Deletar"
+                  routerLink="/licenciamentos/delete/{{ lic.id }}">
+            <i class="bi bi-trash"></i>
+          </button>
+        </td>
+        <td>
+          <button type="button"
+                  class="btn btn-primary"
+                  tooltip="Atualizar"
+                  routerLink="/licenciamentos/update/{{ lic.id }}" >
+            <i class="bi bi-pencil-square"></i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <pagination-controls
+      (pageChange)="currentPage = $event"
+      previousLabel="Anterior"
+      nextLabel="Próximo">
+    </pagination-controls>
+  </div>
+</div>

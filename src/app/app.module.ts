@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -52,6 +53,10 @@ import { RequestResetPasswordComponent } from './components/usuario/request-rese
 import { ResetPasswordComponent } from './components/usuario/reset-password/reset-password.component';
 import { DashboardComponent } from './components/dashboard/dashboard/dashboard.component';
 import {NgChartsModule} from "ng2-charts";
+import { LicenciamentoListComponent } from './components/licenciamento/licenciamento-list/licenciamento-list.component';
+import { LicenciamentoCreateComponent } from './components/licenciamento/licenciamento-create/licenciamento-create.component';
+import { LicenciamentoUpdateComponent } from './components/licenciamento/licenciamento-update/licenciamento-update.component';
+import { LicenciamentoDeleteComponent } from './components/licenciamento/licenciamento-delete/licenciamento-delete.component';
 
 
 @NgModule({
@@ -96,6 +101,10 @@ import {NgChartsModule} from "ng2-charts";
     RequestResetPasswordComponent,
     ResetPasswordComponent,
     DashboardComponent,
+    LicenciamentoListComponent,
+    LicenciamentoCreateComponent,
+    LicenciamentoUpdateComponent,
+    LicenciamentoDeleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -116,6 +125,7 @@ import {NgChartsModule} from "ng2-charts";
       closeButton: true,
       progressBar: true
     }),
+    NgxPaginationModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

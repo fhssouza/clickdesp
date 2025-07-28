@@ -1,0 +1,40 @@
+<div class="container p-2  m-2">
+  <h3><i class="bi bi-card-checklist"></i> Adicionar Licenciamento</h3>
+  <form [formGroup]="formulario" (ngSubmit)="create()">
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control"
+             id="finaPlaca"
+             name="finaPlaca"
+             placeholder="finaPlaca"
+             formControlName="finaPlaca"
+             required>
+      <label for="floatingInput">Final da Placa</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="date" class="form-control"
+             id="dataVencimento"
+             name="dataVencimento"
+             placeholder="dataVencimento"
+             formControlName="dataVencimento"
+             required>
+      <label for="floatingInput">Data Vencimento</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="number" class="form-control"
+             id="anoReferencia"
+             name="anoReferencia"
+             placeholder="anoReferencia"
+             formControlName="anoReferencia"
+             required>
+      <label for="floatingInput">Ano de Referência</label>
+    </div>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary" type="submit" [disabled]="!validaCampos()">Salvar</button>
+      <button (click)="cancelar()" class="btn btn-danger" type="button" routerLink="/licenciamentos">Cancelar</button>
+    </div>
+  </form>
+</div>
