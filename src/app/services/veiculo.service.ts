@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable, catchError, map } from 'rxjs';
-import { Veiculo } from '../models/Veiculo';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {map, Observable} from 'rxjs';
+import {Veiculo} from '../models/Veiculo';
 import {environment} from "../../environments/environment";
 
 @Injectable({
