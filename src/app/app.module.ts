@@ -57,6 +57,7 @@ import { LicenciamentoListComponent } from './components/licenciamento/licenciam
 import { LicenciamentoCreateComponent } from './components/licenciamento/licenciamento-create/licenciamento-create.component';
 import { LicenciamentoUpdateComponent } from './components/licenciamento/licenciamento-update/licenciamento-update.component';
 import { LicenciamentoDeleteComponent } from './components/licenciamento/licenciamento-delete/licenciamento-delete.component';
+import {VeiculoRelatorioComponent} from "./components/veiculo/veiculo-relatorio/veiculo-relatorio.component";
 
 
 @NgModule({
@@ -105,6 +106,7 @@ import { LicenciamentoDeleteComponent } from './components/licenciamento/licenci
     LicenciamentoCreateComponent,
     LicenciamentoUpdateComponent,
     LicenciamentoDeleteComponent,
+    VeiculoRelatorioComponent
   ],
   imports: [
     BrowserModule,

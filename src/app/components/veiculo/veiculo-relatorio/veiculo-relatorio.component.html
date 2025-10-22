@@ -1,0 +1,140 @@
+<div class="container mt-4">
+  <h3 class="mb-4"><i class="bi bi-file-earmark-text"></i> Relatório de Veículos</h3>
+
+  <div class="card mb-4">
+    <div class="card-header">
+      <h2 class="h5 mb-0">Relatório de Vencimentos</h2>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="dataInicio">Data Início</label>
+          <input type="date" class="form-control" id="dataInicio" [(ngModel)]="dataInicio" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="dataFim">Data Fim</label>
+          <input type="date" class="form-control" id="dataFim" [(ngModel)]="dataFim" required>
+        </div>
+      </div>
+      <div class="form-group mt-3 text-right">
+        <button type="button" class="btn btn-primary" (click)="gerarRelatorioVencimentos()">Exibir Relatório</button>
+      </div>
+
+      <div class="mt-4" *ngIf="vencimentos.length > 0">
+        <div class="d-flex justify-content-between align-items-center">
+          <h3 class="h6 mb-0">Resultados:</h3>
+          <button type="button" class="btn btn-sm btn-outline-secondary" (click)="limparRelatorioVencimentos()">Limpar</button>
+        </div>
+        <table class="table table-striped table-bordered mt-2">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Placa</th>
+              <th scope="col">Modelo</th>
+              <th scope="col">Data Vencimento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let vencimento of vencimentos">
+              <td>{{vencimento.placa}}</td>
+              <td>{{vencimento.modelo}}</td>
+              <td>{{vencimento.dataVencimento}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-header">
+      <h2 class="h5 mb-0">Relatório de Licenciamento Geral por Final de Placa</h2>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="finalPlacaGeral">Final da Placa</label>
+          <input type="text" class="form-control" id="finalPlacaGeral" placeholder="Ex: 02" [(ngModel)]="finalPlacaGeral" required>
+        </div>
+      </div>
+      <div class="form-group mt-3 text-right">
+        <button type="button" class="btn btn-primary" (click)="gerarRelatorioLicenciamentoGeral()">Exibir Relatório</button>
+      </div>
+
+      <div class="mt-4" *ngIf="licenciamentosGerais.length > 0">
+        <div class="d-flex justify-content-between align-items-center">
+          <h3 class="h6 mb-0">Resultados:</h3>
+          <button type="button" class="btn btn-sm btn-outline-secondary" (click)="limparRelatorioLicenciamentoGeral()">Limpar</button>
+        </div>
+        <table class="table table-striped table-bordered mt-2">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Placa</th>
+              <th scope="col">Modelo</th>
+              <th scope="col">Marca</th>
+              <th scope="col">Proprietário</th>
+              <th scope="col">Data de Vencimento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let licenciamento of licenciamentosGerais">
+              <td>{{licenciamento.placa}}</td>
+              <td>{{licenciamento.modelo}}</td>
+              <td>{{licenciamento.marca}}</td>
+              <td>{{licenciamento.nomeProprietario}}</td>
+              <td>{{licenciamento.dataVencimento}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2 class="h5 mb-0">Relatório de Licenciamento por Proprietário e Final de Placa</h2>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="finalPlacaProprietario">Final da Placa</label>
+          <input type="text" class="form-control" id="finalPlacaProprietario" placeholder="Ex: 41" [(ngModel)]="finalPlacaProprietario" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="proprietarioId">ID do Proprietário</label>
+          <input type="text" class="form-control" id="proprietarioId" placeholder="Ex: 01" [(ngModel)]="proprietarioId" required>
+        </div>
+      </div>
+      <div class="form-group mt-3 text-right">
+        <button type="button" class="btn btn-primary" (click)="gerarRelatorioLicenciamentoProprietario()">Exibir Relatório</button>
+      </div>
+
+      <div class="mt-4" *ngIf="licenciamentosProprietario.length > 0">
+        <div class="d-flex justify-content-between align-items-center">
+          <h3 class="h6 mb-0">Resultados:</h3>
+          <button type="button" class="btn btn-sm btn-outline-secondary" (click)="limparRelatorioLicenciamentoProprietario()">Limpar</button>
+        </div>
+        <table class="table table-striped table-bordered mt-2">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Placa</th>
+              <th scope="col">Modelo</th>
+              <th scope="col">Marca</th>
+              <th scope="col">Proprietário</th>
+              <th scope="col">Data de Vencimento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let licenciamento of licenciamentosProprietario">
+              <td>{{licenciamento.placa}}</td>
+              <td>{{licenciamento.modelo}}</td>
+              <td>{{licenciamento.marca}}</td>
+              <td>{{licenciamento.nomeProprietario}}</td>
+              <td>{{licenciamento.dataVencimento}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -59,6 +59,7 @@ import {
 import {
   LicenciamentoDeleteComponent
 } from "./components/licenciamento/licenciamento-delete/licenciamento-delete.component";
+import { VeiculoRelatorioComponent } from './components/veiculo/veiculo-relatorio/veiculo-relatorio.component';
 
 const routes: Routes = [
 
@@ -83,6 +84,7 @@ const routes: Routes = [
     { path: 'veiculos/create', component: VeiculoCreateComponent, canActivate:[authGuard] },
     { path: 'veiculos/update/:id', component: VeiculoUpdateComponent, canActivate:[authGuard] },
     { path: 'veiculos/delete/:id', component: VeiculoDeleteComponent, canActivate:[authGuard] },
+    { path: 'veiculos/relatorios', component: VeiculoRelatorioComponent, canActivate:[authGuard] },
 
     { path: 'licenciamentos', component: LicenciamentoListComponent, canActivate:[authGuard]},
     { path: 'licenciamentos/create', component: LicenciamentoCreateComponent, canActivate:[authGuard]},

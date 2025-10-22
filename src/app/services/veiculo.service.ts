@@ -46,4 +46,19 @@ export class VeiculoService {
       })
     )
   }
+
+  getVencimentos(dataInicio: string, dataFim: string): Observable<any[]> {
+    const url = `${this.API}/vencimentos?dataInicio=${dataInicio}&dataFim=${dataFim}`;
+    return this.http.get<any[]>(url);
+  }
+
+  getLicenciamentoGeralByFinalPlaca(finalPlaca: string): Observable<any[]> {
+    const url = `${this.API}/licenciamento/geral/final-placa/${finalPlaca}`;
+    return this.http.get<any[]>(url);
+  }
+
+  getLicenciamentoByFinalPlacaAndProprietario(finalPlaca: string, proprietarioId: string): Observable<any[]> {
+    const url = `${this.API}/licenciamento/final-placa/${finalPlaca}?proprietarioId=${proprietarioId}`;
+    return this.http.get<any[]>(url);
+  }
 }
